@@ -1,0 +1,39 @@
+{
+  "canisters": {
+    "trumarket-icp-app-backend": {
+      "build": "npx azle trumarket-icp-app-backend",
+      "candid": "src/trumarket-icp-app-backend/trumarket-icp-app-backend.did",
+      "gzip": true,
+      "main": "src/trumarket-icp-app-backend/src/index.ts",
+      "tech_stack": {
+        "cdk": {
+          "azle": {}
+        },
+        "language": {
+          "javascript": {},
+          "typescript": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".azle/trumarket-icp-app-backend/trumarket-icp-app-backend.wasm"
+    },
+    "trumarket-icp-app-frontend": {
+      "dependencies": [
+        "trumarket-icp-app-backend"
+      ],
+      "source": [
+        "src/trumarket-icp-app-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "trumarket-icp-app-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
