@@ -1,3 +1,9 @@
-service : {
-    "greet" : (text) -> (text) query;
+type rec_7 = record {id:text; new:bool; email:text; approved:bool};
+type rec_2 = record {taxId:text; country:text; name:text};
+type rec_0 = record {id:text; status:text; docs:vec text; fundsDistribution:float64; description:text; approvalStatus:text};
+type rec_8 = record {id:text; roi:float64; proposalSupplierEmail:text; status:text; destination:text; duration:text; expectedShippingEndDate:text; revenue:float64; newDocuments:bool; totalValue:float64; docs:vec text; quality:text; offerUnitPrice:float64; name:text; origin:text; transport:text; suppliers:vec rec_7; buyerConfirmed:bool; description:text; supplierCompany:rec_2; investmentAmount:float64; supplierConfirmed:bool; portOfOrigin:text; nftID:int; currentMilestone:int; quantity:float64; mintTxHash:text; netBalance:float64; presentation:text; newForBuyer:bool; shippingStartDate:text; variety:text; buyers:vec rec_7; daysLeft:int; portOfDestination:text; contractId:text; proposalBuyerEmail:text; buyerCompany:rec_2; milestones:vec rec_0};
+service: () -> {
+    getShipmentDetails: (text) -> (rec_8) query;
+    getShipmentsList: () -> (vec rec_8) query;
+    getVersion: () -> (text) query;
 }

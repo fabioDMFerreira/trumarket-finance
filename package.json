@@ -8,11 +8,13 @@
     "build": "npm run build --workspaces --if-present",
     "prebuild": "npm run prebuild --workspaces --if-present",
     "pretest": "npm run prebuild --workspaces --if-present",
-    "start": "npm start --workspaces --if-present",
-    "test": "npm test --workspaces --if-present"
+    "start": "npm run start -w dev & npm run start -w src/trumarket-icp-app-frontend",
+    "test": "npm test --workspaces --if-present",
+    "generate": "dfx generate"
   },
   "type": "module",
   "workspaces": [
+    "dev",
     "src/trumarket-icp-app-backend",
     "src/trumarket-icp-app-frontend"
   ]

@@ -1,7 +1,7 @@
 {
   "canisters": {
     "trumarket-icp-app-backend": {
-      "build": "npx azle trumarket-icp-app-backend",
+      "build": "npx azle compile trumarket-icp-app-backend",
       "candid": "src/trumarket-icp-app-backend/trumarket-icp-app-backend.did",
       "gzip": true,
       "main": "src/trumarket-icp-app-backend/src/index.ts",
