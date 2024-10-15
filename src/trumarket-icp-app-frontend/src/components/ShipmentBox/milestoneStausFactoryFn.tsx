@@ -8,7 +8,6 @@ export const milestoneStatusFactory = (
   isBuyer: boolean,
   nextMilestoneStatus: MilestoneApprovalStatus,
   milestoneStatus: MilestoneApprovalStatus,
-  hasNewDocuments: boolean,
   active: any
 ) => {
   const conditions = [
@@ -114,24 +113,6 @@ export const milestoneStatusFactory = (
             weight="duotone"
           />
         ),
-        badge: null,
-      },
-    },
-    {
-      condition: hasNewDocuments && active && isBuyer,
-      result: {
-        containerClass: `cursor-pointer border-2 border-tm-black-80 bg-tm-black-80/10 hover:bg-tm-black-80/20`,
-        iconClass: `!fill-bg-tm-black-80 !opacity-100`,
-        icon: null,
-        badge: null,
-      },
-    },
-    {
-      condition: hasNewDocuments && active && !isBuyer,
-      result: {
-        containerClass: `cursor-pointer  bg-tm-black-80/10 hover:bg-tm-black-80/20`,
-        iconClass: `!fill-bg-tm-black-80 !opacity-100`,
-        icon: null,
         badge: null,
       },
     },

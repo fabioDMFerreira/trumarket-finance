@@ -9,16 +9,13 @@ import MuiTooltip from '@/components/common/mui-tooltip';
 import { AgreementPartyInfo } from '@/interfaces/shipment';
 interface ShipmentBaseInfoProps {
   accountType: AccountTypeEnum;
-  emailInfo?: AgreementPartyInfo[];
-  value: number;
   identifier: string;
+  emailInfo?: AgreementPartyInfo[];
   handleShowAgreement: () => void;
 }
 
 const ShipmentBaseInfo: React.FC<ShipmentBaseInfoProps> = ({
   accountType,
-  emailInfo,
-  value,
   identifier,
   handleShowAgreement,
 }) => {
@@ -28,37 +25,13 @@ const ShipmentBaseInfo: React.FC<ShipmentBaseInfoProps> = ({
       <div className="flex items-center rounded-[4px] border border-tm-black-20 bg-[#ffffff80] px-[26px]">
         <InformationRow
           label={isBuyer ? 'Supplier:' : 'Buyer:'}
-          value={
-            <MuiTooltip
-              titleHidden={emailInfo?.length === 1}
-              tooltipText={emailInfo
-                ?.slice(1)
-                .map((user) => user.email)
-                .join('\n')}
-            >
-              {emailInfo?.length ? (
-                <p>{`${emailInfo[0].email} ${
-                  emailInfo.length > 1
-                    ? `and ${emailInfo!.length! - 1} other`
-                    : ''
-                }`}</p>
-              ) : (
-                <></>
-              )}
-            </MuiTooltip>
-          }
+          value={<p></p>}
           underlined={false}
           showBoldValue={false}
           containerClassOverrides="py-[10px]"
         />
         <InformationRowDivider classOverrides="h-[30px]" />
-        <InformationRow
-          underlined={false}
-          label="Value:"
-          value={CurrencyFormatter(value)}
-          showBoldValue={false}
-          containerClassOverrides="py-[10px]"
-        />
+
         <InformationRowDivider classOverrides="h-[30px]" />
         <InformationRow
           label="Identifier:"

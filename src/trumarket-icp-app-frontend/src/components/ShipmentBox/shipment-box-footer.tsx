@@ -11,8 +11,6 @@ import MuiTooltip from '@/components/common/mui-tooltip';
 
 interface ShipmentBoxFooterProps {
   accountType: AccountTypeEnum;
-  emailInfo: AgreementPartyInfo[];
-  value: number;
   contract: string;
   // action: () => void;
   // actionButtonText: string;
@@ -21,8 +19,6 @@ interface ShipmentBoxFooterProps {
 
 const ShipmentBoxFooter: React.FC<ShipmentBoxFooterProps> = ({
   accountType,
-  emailInfo,
-  value,
   contract,
   // actionButtonText,
   // action,
@@ -36,31 +32,10 @@ const ShipmentBoxFooter: React.FC<ShipmentBoxFooterProps> = ({
           <InformationRow
             label={isBuyer ? 'Supplier:' : 'Buyer:'}
             underlined={false}
-            value={
-              <MuiTooltip
-                titleHidden={emailInfo?.length === 1}
-                tooltipText={emailInfo
-                  ?.slice(1)
-                  ?.map((user) => user.email)
-                  ?.join('\n')}
-              >
-                <p>{`${emailInfo?.[0]?.email} ${
-                  emailInfo.length > 1
-                    ? `and ${emailInfo.length - 1} other`
-                    : ''
-                } `}</p>
-              </MuiTooltip>
-            }
+            value={<p></p>}
           />
 
           <InformationRowDivider />
-          <InformationRow
-            label="Value:"
-            value={CurrencyFormatter(value)}
-            showBoldValue={false}
-            underlined={false}
-            labelClassOverrides="opacity-80"
-          />
           <InformationRowDivider />
           <InformationRow
             label="Identifier:"

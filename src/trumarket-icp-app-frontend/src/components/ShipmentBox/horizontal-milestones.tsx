@@ -1,45 +1,52 @@
-import Stack from "@mui/material/Stack";
-import Step from "@mui/material/Step";
-import StepConnector, { stepConnectorClasses } from "@mui/material/StepConnector";
-import { StepIconProps } from "@mui/material/StepIcon";
-import StepLabel from "@mui/material/StepLabel";
-import Stepper from "@mui/material/Stepper";
-import { styled } from "@mui/material/styles";
-import { AirplaneTilt } from "@phosphor-icons/react";
-import classNames from "classnames";
-import * as React from "react";
+import Stack from '@mui/material/Stack';
+import Step from '@mui/material/Step';
+import StepConnector, {
+  stepConnectorClasses,
+} from '@mui/material/StepConnector';
+import { StepIconProps } from '@mui/material/StepIcon';
+import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
+import { styled } from '@mui/material/styles';
+import { AirplaneTilt } from '@phosphor-icons/react';
+import classNames from 'classnames';
+import * as React from 'react';
 
-import { IMilestoneDetails, ITransportType, MilestoneApprovalStatus, MilestoneEnum } from "@/interfaces/global";
-import { milestones as MilestoneData } from "@/lib/static";
+import {
+  IMilestoneDetails,
+  ITransportType,
+  MilestoneApprovalStatus,
+  MilestoneEnum,
+} from '@/interfaces/global';
+import { milestones as MilestoneData } from '@/lib/static';
 
-import { milestoneStatusFactory } from "./milestoneStausFactoryFn";
+import { milestoneStatusFactory } from './milestoneStausFactoryFn';
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 15,
-    display: "flex",
-    justifyContent: "center",
+    display: 'flex',
+    justifyContent: 'center',
   },
   [`& .${stepConnectorClasses.line}`]: {
-    height: "2px",
+    height: '2px',
     border: 0,
-    width: "20px",
-    backgroundColor: "#00000033",
+    width: '20px',
+    backgroundColor: '#00000033',
     borderRadius: 1,
-    top: "5px",
-    position: "relative",
-    "&::after": {
+    top: '5px',
+    position: 'relative',
+    '&::after': {
       content: '""',
-      position: "absolute",
-      right: "-9px",
-      top: "-1px",
-      transform: "translateY(-50%)",
-      rotate: "270deg",
+      position: 'absolute',
+      right: '-9px',
+      top: '-1px',
+      transform: 'translateY(-50%)',
+      rotate: '270deg',
       width: 0,
       height: 0,
-      borderLeft: "5px solid transparent",
-      borderRight: "5px solid transparent",
-      borderTop: "5px solid #00000033",
+      borderLeft: '5px solid transparent',
+      borderRight: '5px solid transparent',
+      borderTop: '5px solid #00000033',
     },
   },
 }));
@@ -50,11 +57,10 @@ function ColorlibStepIcon(
     status: MilestoneEnum | undefined;
     icon: React.ReactElement;
     isBuyer: boolean;
-    hasNewDocuments: boolean;
     prevMilestoneStatus: MilestoneApprovalStatus;
     nextMilestoneStatus: MilestoneApprovalStatus;
     setActive: React.Dispatch<React.SetStateAction<boolean>>;
-  },
+  }
 ) {
   const {
     active,
@@ -63,7 +69,6 @@ function ColorlibStepIcon(
     icon,
     milestoneStatus,
     isBuyer,
-    hasNewDocuments,
     prevMilestoneStatus,
     nextMilestoneStatus,
     setActive,
@@ -73,12 +78,11 @@ function ColorlibStepIcon(
     isBuyer,
     nextMilestoneStatus,
     milestoneStatus,
-    hasNewDocuments,
-    active,
+    active
   );
 
   const IconWithStyle = React.cloneElement(icon, {
-    className: classNames("opacity-30", milestoneInfoRenderer?.iconClass),
+    className: classNames('opacity-30', milestoneInfoRenderer?.iconClass),
   });
 
   React.useEffect(() => {
@@ -90,8 +94,8 @@ function ColorlibStepIcon(
       <div>
         <div
           className={classNames(
-            "flex h-[40px] max-w-[80px] items-center justify-center gap-[10px] rounded-[4px] px-[10px]",
-            milestoneInfoRenderer?.containerClass,
+            'flex h-[40px] max-w-[80px] items-center justify-center gap-[10px] rounded-[4px] px-[10px]',
+            milestoneInfoRenderer?.containerClass
           )}
         >
           {IconWithStyle}
@@ -106,32 +110,42 @@ export default function HorizontalMilestones({
   status,
   milestones,
   isBuyer,
-  hasNewDocuments,
   setActive,
   transport,
 }: {
   status: MilestoneEnum | undefined;
   milestones: IMilestoneDetails[];
   isBuyer: boolean;
-  hasNewDocuments: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
   transport: ITransportType;
 }) {
   return (
-    <Stack sx={{ width: "100%" }}>
-      <Stepper alternativeLabel activeStep={status} connector={<ColorlibConnector />}>
+    <Stack sx={{ width: '100%' }}>
+      <Stepper
+        alternativeLabel
+        activeStep={status}
+        connector={<ColorlibConnector />}
+      >
         {MilestoneData.map((step) => (
-          <Step key={step.milestone} sx={{ paddingLeft: 0, paddingRight: 0, width: "30px" }}>
+          <Step
+            key={step.milestone}
+            sx={{ paddingLeft: 0, paddingRight: 0, width: '30px' }}
+          >
             <StepLabel
               StepIconComponent={(props) => (
                 // @ts-ignore
                 <ColorlibStepIcon
                   {...props}
                   milestoneStatus={milestones[step.milestone]?.approvalStatus}
-                  prevMilestoneStatus={milestones[step.milestone - 1]?.approvalStatus}
-                  nextMilestoneStatus={milestones[step.milestone + 1]?.approvalStatus}
+                  prevMilestoneStatus={
+                    milestones[step.milestone - 1]?.approvalStatus
+                  }
+                  nextMilestoneStatus={
+                    milestones[step.milestone + 1]?.approvalStatus
+                  }
                   icon={
-                    step.milestone === MilestoneEnum.M5 && transport === ITransportType.BY_AIR ? (
+                    step.milestone === MilestoneEnum.M5 &&
+                    transport === ITransportType.BY_AIR ? (
                       <AirplaneTilt size={26} weight="duotone" />
                     ) : (
                       step.icon
@@ -139,7 +153,6 @@ export default function HorizontalMilestones({
                   }
                   status={status}
                   isBuyer={isBuyer}
-                  hasNewDocuments={hasNewDocuments}
                   setActive={setActive}
                 />
               )}

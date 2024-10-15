@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 
-import { AccountTypeEnum, MilestoneEnum } from '@/interfaces/global';
+import {
+  AccountTypeEnum,
+  ITransportType,
+  MilestoneEnum,
+} from '@/interfaces/global';
 import ShipmentInfo from '@/components/ShipmentInfo';
 import { getCountryCode, hasDocsWithLength } from '@/lib/helpers';
 import {
@@ -19,20 +23,12 @@ interface ShipmentBoxProps {
   shipment: ShippingDetails;
   status: DealStatus;
   notStarted: boolean;
-  isNew: boolean;
-  newDocuments: boolean;
-  supplierEmails: AgreementPartyInfo[];
-  buyerEmails: AgreementPartyInfo[];
 }
 
 const ShipmentBox: React.FC<ShipmentBoxProps> = ({
   shipment,
   status,
   notStarted,
-  isNew,
-  newDocuments,
-  supplierEmails,
-  buyerEmails,
 }) => {
   const navigate = useNavigate();
   const [active, setActive] = useState<boolean>(false);
@@ -71,9 +67,6 @@ const ShipmentBox: React.FC<ShipmentBoxProps> = ({
             entityId={shipment.id}
             notStarted={notStarted}
             isNew={detectIfDealIsUnseenByCurrentUser()}
-            supplierEmails={supplierEmails}
-            buyerEmails={buyerEmails}
-            newDocuments={newDocuments}
             accountType={AccountTypeEnum.INVESTOR}
             status={status}
             userId={''}
@@ -100,8 +93,7 @@ const ShipmentBox: React.FC<ShipmentBoxProps> = ({
                   status={generateMilestoneStatus()}
                   milestones={shipment.milestones}
                   isBuyer={false}
-                  hasNewDocuments={shipment.newDocuments!}
-                  transport={shipment.transport!}
+                  transport={shipment.transport as ITransportType}
                   setActive={setActive}
                 />
               </div>
@@ -121,8 +113,6 @@ const ShipmentBox: React.FC<ShipmentBoxProps> = ({
           <div className="border-t border-t-tm-black-20">
             <ShipmentBoxFooter
               accountType={AccountTypeEnum.INVESTOR}
-              emailInfo={(false ? shipment.suppliers : shipment.buyers) || ''}
-              value={shipment.totalValue}
               contract={`${shipment.contractId}` || '0'}
               entityId={shipment.id}
               // actionButtonText={actionButtonText}
