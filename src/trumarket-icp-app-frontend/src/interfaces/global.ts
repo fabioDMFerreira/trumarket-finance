@@ -1,18 +1,18 @@
 export enum SocialProviders {
-  GOOGLE = "google",
-  FACEBOOK = "facebook",
-  TWITTER = "twitter",
+  GOOGLE = 'google',
+  FACEBOOK = 'facebook',
+  TWITTER = 'twitter',
 }
 
 export enum WalletProviders {
-  METAMASK = "metamask",
-  WALLET_CONNECT = "wallet_connect",
+  METAMASK = 'metamask',
+  WALLET_CONNECT = 'wallet_connect',
 }
 
 export enum AccountTypeEnum {
-  SUPPLIER = "supplier",
-  BUYER = "buyer",
-  INVESTOR = "investor",
+  SUPPLIER = 'supplier',
+  BUYER = 'buyer',
+  INVESTOR = 'investor',
 }
 
 export enum EmailSteps {
@@ -39,9 +39,9 @@ export interface IRules {
 }
 
 export enum ValidationStates {
-  SUCCESS = "success",
-  ERROR = "error",
-  WARN = "warn",
+  SUCCESS = 'success',
+  ERROR = 'error',
+  WARN = 'warn',
 }
 
 export interface IOptions {
@@ -50,8 +50,8 @@ export interface IOptions {
 }
 
 export enum ITransportType {
-  BY_SEA = "sea_fright",
-  BY_AIR = "by_air",
+  BY_SEA = 'sea_fright',
+  BY_AIR = 'by_air',
 }
 
 export interface FileWithPreview extends File {
@@ -67,16 +67,16 @@ export interface IUploadedFileProps {
 }
 
 export enum MilestoneStatus {
-  IN_PROGRESS = "in progress",
-  NOT_COMPLETED = "not completed",
-  COMPLETED = "completed",
+  IN_PROGRESS = 'in progress',
+  NOT_COMPLETED = 'not completed',
+  COMPLETED = 'completed',
 }
 
 export enum MilestoneApprovalStatus {
-  Pending = "pending",
-  Submitted = "submitted",
-  Approved = "approved",
-  Denied = "denied",
+  Pending = 'pending',
+  Submitted = 'submitted',
+  Approved = 'approved',
+  Denied = 'denied',
 }
 
 export interface IMilestoneDetails {
@@ -84,7 +84,7 @@ export interface IMilestoneDetails {
   docs: any[];
   id: string;
   status: MilestoneStatus;
-  fundsDistribution?: number;
+  fundsDistribution: number;
   description?: string;
 }
 

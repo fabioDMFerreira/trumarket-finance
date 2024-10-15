@@ -46,18 +46,26 @@ const watcher = chokidar.watch('./src/trumarket-icp-app-backend/src', {
   persistent: true,
 });
 
+let deployProcess = null;
+
 watcher.on('change', (path) => {
   console.log(`File ${path} has been changed`);
-  exec('dfx deploy', (error, stdout, stderr) => {
+
+  if (deployProcess) {
+    deployProcess.kill();
+    console.log('Previous deploy process killed');
+  }
+
+  deployProcess = exec('dfx deploy', (error, stdout, stderr) => {
     if (error) {
-      console.error(`npm generate process exited with error: ${error.message}`);
+      console.error(`dfx deploy process exited with error: ${error.message}`);
       return;
     }
     if (stderr) {
-      console.error(`npm generate stderr: ${stderr}`);
+      console.error(`dfx deploy stderr: ${stderr}`);
       return;
     }
-    console.log(`npm generate stdout: ${stdout}`);
+    console.log(`dfx deploy stdout: ${stdout}`);
   });
 });
 
@@ -76,3 +84,19 @@ exec('dfx deploy', (error, stdout, stderr) => {
 });
 
 console.log('Deploying canisters');
+
+process.on('SIGINT', () => {
+  console.log('SIGINT signal received: closing watcher');
+  watcher.close().then(() => {
+    console.log('Watcher closed');
+    process.exit(0);
+  });
+});
+
+process.on('SIGTERM', () => {
+  console.log('SIGTERM signal received: closing watcher');
+  watcher.close().then(() => {
+    console.log('Watcher closed');
+    process.exit(0);
+  });
+});

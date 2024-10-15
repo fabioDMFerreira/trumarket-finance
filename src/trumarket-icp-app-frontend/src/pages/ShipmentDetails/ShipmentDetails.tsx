@@ -7,6 +7,7 @@ import { trumarket_icp_app_backend } from 'declarations/trumarket-icp-app-backen
 import {
   AccountTypeEnum,
   IMilestoneDetails,
+  ITransportType,
   MilestoneEnum,
 } from '@/interfaces/global';
 
@@ -58,10 +59,6 @@ function ShipmentDetails() {
           <ShipmentDetailsHeader productName={shipmentDetails?.name} />
           <ShipmentBaseInfo
             accountType={AccountTypeEnum.BUYER}
-            emailInfo={
-              false ? shipmentDetails?.suppliers : shipmentDetails?.buyers
-            }
-            value={shipmentDetails?.totalValue || 0}
             identifier={(shipmentDetails?.id as string) || '-'}
             handleShowAgreement={() => {
               // TODO: open modal with more details
@@ -104,7 +101,7 @@ function ShipmentDetails() {
                   currentActiveMilestoneDetails={currentMilestoneDetails as any}
                   isBuyer={false}
                   handleSelectMilestone={handleSelectMilestone}
-                  transport={shipmentDetails?.transport}
+                  transport={shipmentDetails?.transport as ITransportType}
                 />
               </div>
               <div className="flex items-start gap-[10px]">

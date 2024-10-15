@@ -15,7 +15,10 @@
         }
       },
       "type": "custom",
-      "wasm": ".azle/trumarket-icp-app-backend/trumarket-icp-app-backend.wasm"
+      "wasm": ".azle/trumarket-icp-app-backend/trumarket-icp-app-backend.wasm",
+      "custom": {
+        "experimental": true
+      }
     },
     "trumarket-icp-app-frontend": {
       "dependencies": [

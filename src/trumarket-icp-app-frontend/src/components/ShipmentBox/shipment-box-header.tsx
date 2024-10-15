@@ -23,11 +23,8 @@ interface ShipmentBoxHeaderProps {
   accountType: AccountTypeEnum;
   notStarted: boolean;
   isNew: boolean;
-  newDocuments: boolean;
   userId: string;
   status: DealStatus;
-  supplierEmails: AgreementPartyInfo[];
-  buyerEmails: AgreementPartyInfo[];
   milestones: IMilestoneDetails[];
   currentMilestone: MilestoneEnum;
   active: boolean;
@@ -46,10 +43,7 @@ const ShipmentBoxHeader: React.FC<ShipmentBoxHeaderProps> = ({
   userId,
   notStarted,
   isNew,
-  newDocuments,
   status,
-  supplierEmails,
-  buyerEmails,
   milestones,
   currentMilestone,
   active,
@@ -130,40 +124,12 @@ const ShipmentBoxHeader: React.FC<ShipmentBoxHeaderProps> = ({
     return null;
   };
 
-  const renderAgreementBadgeSupplier = () => {
-    const supplierApprovalQty =
-      checkHowManyUserApprovedAgreement(supplierEmails);
-    const supplierConfirmed = isApprovedByAllUser(supplierEmails);
-    return renderAgreementBadge(
-      supplierEmails,
-      isSupplier,
-      AccountTypeEnum.SUPPLIER,
-      supplierApprovalQty,
-      supplierConfirmed,
-      status
-    );
-  };
-
-  const renderAgreementBadgeBuyer = () => {
-    const buyerApprovalQty = checkHowManyUserApprovedAgreement(buyerEmails);
-    const buyerConfirmed = isApprovedByAllUser(buyerEmails);
-    return renderAgreementBadge(
-      buyerEmails,
-      isBuyer,
-      AccountTypeEnum.BUYER,
-      buyerApprovalQty,
-      buyerConfirmed,
-      status
-    );
-  };
-
   const renderMilestoneInfoBadge = useCallback(() => {
     return MilestoneData.map((step) => {
       const milestoneInfoRenderer = milestoneStatusFactory(
         isBuyer,
         milestones[step.milestone + 1]?.approvalStatus,
         milestones[step.milestone]?.approvalStatus,
-        false,
         active
       );
       return milestoneInfoRenderer;
