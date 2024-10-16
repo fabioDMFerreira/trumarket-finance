@@ -12,6 +12,10 @@ html {
   }
 }
 
+a,h1,h2 {
+  color: #8aab3f;
+}
+
 .vi-character {
   height: 100%;
   flex-grow: 1;

@@ -53,7 +53,7 @@ const CustomStepper: React.FC<{ currentStep: number }> = ({ currentStep }) => {
             <div
               className={`rounded-full p-2 ${
                 index <= currentStep
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-[#8aab3f] text-white'
                   : 'bg-gray-200 text-gray-500'
               }`}
               title={step.label}
@@ -281,7 +281,7 @@ function ShipmentsList() {
     <>
       {/* <button
         onClick={loadSampleData}
-        className="mb-4 p-2 bg-blue-500 text-white rounded"
+        className="mb-4 p-2 bg-[#8aab3f] text-white rounded"
       >
         Load data sample
       </button> */}

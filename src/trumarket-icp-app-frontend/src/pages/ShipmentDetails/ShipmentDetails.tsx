@@ -32,7 +32,7 @@ const CustomStepper: React.FC<{
                 disabled={index > stepsCompleted}
                 className={`rounded-full p-2 ${
                   index <= currentStep
-                    ? 'bg-blue-500 text-white'
+                    ? 'bg-[#8aab3f] text-white'
                     : 'bg-gray-200 text-gray-500'
                 } ${
                   index <= stepsCompleted
@@ -48,7 +48,7 @@ const CustomStepper: React.FC<{
               <div className="flex-1 h-1 bg-gray-300 mx-2">
                 <div
                   className={`h-full ${
-                    index < stepsCompleted ? 'bg-blue-500' : 'bg-gray-300'
+                    index < stepsCompleted ? 'bg-[#8aab3f]' : 'bg-gray-300'
                   }`}
                 />
               </div>
@@ -86,11 +86,11 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
           <div className="bg-white shadow-md rounded-lg p-6 mb-6 space-y-4">
             <p className="text-gray-700">
               <strong className="font-semibold">Origin:</strong>{' '}
-              {shipment.origin}
+              {shipment.origin} ({shipment.portOfOrigin})
             </p>
             <p className="text-gray-700">
               <strong className="font-semibold">Destination:</strong>{' '}
-              {shipment.destination}
+              {shipment.destination} ({shipment.portOfDestination})
             </p>
             <p className="text-gray-700">
               <strong className="font-semibold">Shipping Start Date:</strong>{' '}
@@ -120,14 +120,14 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
               <strong className="font-semibold">Description:</strong>{' '}
               {shipment.description}
             </p>
-            <p className="text-blue-500 hover:underline">
+            {/* <p className="text-blue-500 hover:underline">
               <a
                 target="_blank"
                 href={`https://www.oklink.com/amoy/tx/${shipment.mintTxHash}`}
               >
                 Creation Tx
               </a>
-            </p>
+            </p> */}
             {shipment.createdAt && (
               <p className="text-gray-700">
                 <strong className="font-semibold">Created At:</strong>{' '}
