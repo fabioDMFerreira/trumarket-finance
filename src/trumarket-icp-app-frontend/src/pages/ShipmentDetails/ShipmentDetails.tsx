@@ -1,31 +1,217 @@
-import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ShipmentDetailsHeader from './ShipmentDetailsHeader';
-import ShipmentBaseInfo from './ShipmentBaseInfo';
 import { trumarket_icp_app_backend } from 'declarations/trumarket-icp-app-backend';
-import {
-  AccountTypeEnum,
-  IMilestoneDetails,
-  ITransportType,
-  MilestoneEnum,
-} from '@/interfaces/global';
 
-import { useGetWindowDimension } from '@/lib/hooks/useGetWindowDimensions';
-import Flag from 'react-world-flags';
-import { getCountryCode } from '@/lib/helpers';
-import ShipmentInfo from '@/components/ShipmentInfo';
-import moment from 'moment';
-import ShipmentMilestoneStatus from './shipment-milestone-status';
-import { ShippingDetails } from '@/interfaces/shipment';
-import DocumentBoxHeader from './document-box-header/header';
-import classNames from 'classnames';
+import { ShippingDetails } from '@/types/shipment';
+import { milestones } from '@/lib/static';
+
+const formatDate = (dateString: string) => {
+  if (!dateString) {
+    return '';
+  }
+  return new Date(dateString).toLocaleDateString();
+};
+
+const CustomStepper: React.FC<{
+  stepsCompleted: number;
+  currentStep: number;
+  totalSteps: number;
+  onStepClick: (step: number) => void;
+}> = ({ currentStep, totalSteps, stepsCompleted, onStepClick }) => {
+  const steps = milestones;
+
+  return (
+    <div className="flex justify-between w-full items-center">
+      {steps.map((step, index) => {
+        const Icon = step.icon;
+        return (
+          <React.Fragment key={step.label}>
+            <div className="flex flex-col items-center">
+              <button
+                onClick={() => onStepClick(index)}
+                disabled={index > stepsCompleted}
+                className={`rounded-full p-2 ${
+                  index <= currentStep
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-200 text-gray-500'
+                } ${
+                  index <= stepsCompleted
+                    ? 'cursor-pointer'
+                    : 'cursor-not-allowed'
+                }`}
+                title={step.label}
+              >
+                <Icon size={24} />
+              </button>
+            </div>
+            {index < steps.length - 1 && (
+              <div className="flex-1 h-1 bg-gray-300 mx-2">
+                <div
+                  className={`h-full ${
+                    index < stepsCompleted ? 'bg-blue-500' : 'bg-gray-300'
+                  }`}
+                />
+              </div>
+            )}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+};
+
+const Card: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="bg-white shadow-md rounded-lg overflow-hidden">
+    {children}
+  </div>
+);
+
+const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
+  shipment,
+}) => {
+  const [activeStep, setActiveStep] = useState(shipment.currentMilestone);
+
+  const handleStep = (step: number) => {
+    if (step <= shipment.currentMilestone) {
+      setActiveStep(step);
+    }
+  };
+
+  return (
+    <div className="w-full max-w-7xl mx-auto px-4  py-8">
+      <div className="flex h-screen w-full">
+        {/* Left Section - 40% */}
+        <div className="w-2/5 p-6 overflow-auto mr-4">
+          <h1 className="text-2xl font-bold mb-4">{shipment.name}</h1>
+          <div className="bg-white shadow-md rounded-lg p-6 mb-6 space-y-4">
+            <p className="text-gray-700">
+              <strong className="font-semibold">Origin:</strong>{' '}
+              {shipment.origin}
+            </p>
+            <p className="text-gray-700">
+              <strong className="font-semibold">Destination:</strong>{' '}
+              {shipment.destination}
+            </p>
+            <p className="text-gray-700">
+              <strong className="font-semibold">Shipping Start Date:</strong>{' '}
+              {formatDate(shipment.shippingStartDate)}
+            </p>
+            <p className="text-gray-700">
+              <strong className="font-semibold">Expected End Date:</strong>{' '}
+              {formatDate(shipment.expectedShippingEndDate)}
+            </p>
+            <p className="text-gray-700">
+              <strong className="font-semibold">Quality:</strong>{' '}
+              {shipment.quality}
+            </p>
+            <p className="text-gray-700">
+              <strong className="font-semibold">Offer Unit Price:</strong> $
+              {shipment.offerUnitPrice}
+            </p>
+            <p className="text-gray-700">
+              <strong className="font-semibold">Quantity:</strong>{' '}
+              {shipment.quantity}
+            </p>
+            <p className="text-gray-700">
+              <strong className="font-semibold">Transport:</strong>{' '}
+              {shipment.transport}
+            </p>
+            <p className="text-gray-700">
+              <strong className="font-semibold">Description:</strong>{' '}
+              {shipment.description}
+            </p>
+            <p className="text-blue-500 hover:underline">
+              <a
+                target="_blank"
+                href={`https://www.oklink.com/amoy/tx/${shipment.mintTxHash}`}
+              >
+                Creation Tx
+              </a>
+            </p>
+            {shipment.createdAt && (
+              <p className="text-gray-700">
+                <strong className="font-semibold">Created At:</strong>{' '}
+                {formatDate(shipment.createdAt)}
+              </p>
+            )}
+            {shipment.updatedAt && (
+              <p className="text-gray-700">
+                <strong className="font-semibold">Updated At:</strong>{' '}
+                {formatDate(shipment.updatedAt)}
+              </p>
+            )}
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {shipment.docs.map((doc) => (
+              <Card key={doc._id}>
+                {doc.url.endsWith('.pdf') ? (
+                  <div className="p-4">
+                    <p className="text-sm">{doc.description}</p>
+                    <a
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      View PDF
+                    </a>
+                  </div>
+                ) : (
+                  <img
+                    src={doc.url}
+                    alt={doc.description}
+                    className="w-full h-32 object-cover"
+                  />
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Right Section - 60% */}
+        <div className="w-3/5 p-6 overflow-auto ml-4">
+          <CustomStepper
+            stepsCompleted={shipment.currentMilestone}
+            currentStep={activeStep}
+            totalSteps={7}
+            onStepClick={handleStep}
+          />
+          <h2 className="text-xl font-semibold mt-4 mb-2">
+            {milestones[activeStep].label}
+          </h2>
+          <div className="grid grid-cols-2 gap-4">
+            {shipment.milestones[activeStep]?.docs.map((doc) => (
+              <Card key={doc._id}>
+                {doc.url.endsWith('.pdf') ? (
+                  <div className="p-4">
+                    <p className="text-sm">{doc.description}</p>
+                    <a
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      View PDF
+                    </a>
+                  </div>
+                ) : (
+                  <img
+                    src={doc.url}
+                    alt={doc.description}
+                    className="w-full h-32 object-cover"
+                  />
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 function ShipmentDetails() {
-  const [currentMilestoneDetails, setCurrentMilestoneDetails] =
-    useState<IMilestoneDetails>();
   const [shipmentDetails, setShipmentDetails] = useState<ShippingDetails>();
-  const { windowHeight } = useGetWindowDimension();
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
@@ -33,107 +219,12 @@ function ShipmentDetails() {
 
     trumarket_icp_app_backend.getShipmentDetails(id).then((shipmentDetails) => {
       setShipmentDetails(shipmentDetails as any);
-
-      setCurrentMilestoneDetails(
-        (shipmentDetails as any).milestones[
-          +shipmentDetails.currentMilestone.toString() || 0
-        ]
-      );
     });
   }, [id]);
 
-  const handleSelectMilestone = (milestone: MilestoneEnum) => {
-    if (shipmentDetails?.currentMilestone) {
-      if (milestone <= shipmentDetails.currentMilestone) {
-        setCurrentMilestoneDetails(
-          (shipmentDetails as any).milestones[milestone]
-        );
-      }
-    }
-  };
+  if (!shipmentDetails) return <></>;
 
-  return (
-    <div>
-      <Container maxWidth={false} style={{ padding: 0 }}>
-        <div className="mb-[30px] flex items-center justify-between">
-          <ShipmentDetailsHeader productName={shipmentDetails?.name} />
-          <ShipmentBaseInfo
-            accountType={AccountTypeEnum.BUYER}
-            identifier={(shipmentDetails?.id as string) || '-'}
-            handleShowAgreement={() => {
-              // TODO: open modal with more details
-              // openModal(ShipmentDetailModalView.AGREEMENT_DETAILS)
-            }}
-          />
-        </div>
-        <div className="flex items-start gap-[10px]">
-          <div className="w-[35%] ">
-            <div className="rounded-tl-[4px] rounded-tr-[4px] border-b border-b-tm-black-20 bg-tm-white  px-[30px] py-[25px]">
-              <p className="text-[17px] font-bold leading-[1em] text-tm-black-80">
-                Milestone timeline
-              </p>
-            </div>
-            <div
-              className="rounded-bl-[4px] rounded-br-[4px] bg-tm-white px-[30px] pb-[44px] pt-[30px]"
-              style={{ minHeight: `${windowHeight - 295}px` }}
-            >
-              <div className="flex items-start gap-[10px]">
-                <div className="h-[20px] w-[20px]">
-                  <Flag
-                    code={getCountryCode(shipmentDetails?.origin as string)}
-                  />
-                </div>
-                <ShipmentInfo
-                  title={`${shipmentDetails?.portOfOrigin}, ${shipmentDetails?.origin}`}
-                  value={`${moment(shipmentDetails?.shippingStartDate).format(
-                    'DD.MM.YYYY'
-                  )} | ${moment(shipmentDetails?.shippingStartDate)
-                    .endOf('day')
-                    .fromNow()}`}
-                />
-              </div>
-              <div className="py-[8px]">
-                <ShipmentMilestoneStatus
-                  step={
-                    (shipmentDetails && shipmentDetails.currentMilestone) || 0
-                  }
-                  milestoneInfo={shipmentDetails?.milestones || []}
-                  currentActiveMilestoneDetails={currentMilestoneDetails as any}
-                  isBuyer={false}
-                  handleSelectMilestone={handleSelectMilestone}
-                  transport={shipmentDetails?.transport as ITransportType}
-                />
-              </div>
-              <div className="flex items-start gap-[10px]">
-                <div className="h-[20px] w-[20px]">
-                  <Flag
-                    code={getCountryCode(
-                      shipmentDetails?.destination as string
-                    )}
-                  />
-                </div>
-                <ShipmentInfo
-                  title={`${shipmentDetails?.portOfDestination}, ${shipmentDetails?.destination}`}
-                  value={`${moment(
-                    shipmentDetails?.expectedShippingEndDate
-                  ).format('DD.MM.YYYY')} | ${moment(
-                    shipmentDetails?.expectedShippingEndDate
-                  )
-                    .endOf('day')
-                    .fromNow()}`}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="w-[65%] rounded-[4px]">
-            <DocumentBoxHeader
-              milestoneIndex={shipmentDetails?.currentMilestone || 0}
-            />
-          </div>
-        </div>
-      </Container>
-    </div>
-  );
+  return <ShipmentDetailsPage shipment={shipmentDetails} />;
 }
 
 export default ShipmentDetails;

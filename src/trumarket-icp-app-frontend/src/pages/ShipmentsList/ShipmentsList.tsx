@@ -1,86 +1,296 @@
 import { useEffect, useState } from 'react';
 import { trumarket_icp_app_backend } from 'declarations/trumarket-icp-app-backend';
 
-import { DealStatus, ShippingDetails } from '@/interfaces/shipment';
-import { ShipmentBox } from '@/components/ShipmentBox';
-import { hasDocsWithLength } from '@/lib/helpers';
-import { ITransportType } from '@/interfaces/global';
+import { useNavigate } from 'react-router-dom';
+
+import { ShippingDetails } from '@/types/shipment';
+
+import deals from '../../deals.json';
+import { milestones } from '@/lib/static';
+
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString();
+};
+
+const ActiveShipmentCard: React.FC<{
+  shipment: ShippingDetails;
+  onClick: (id: string) => void;
+}> = ({ shipment, onClick }) => (
+  <div
+    onClick={() => onClick(shipment.id)}
+    className="bg-white shadow rounded-lg p-6 mb-6 flex flex-col transition-all duration-300 ease-in-out hover:bg-blue-50 hover:shadow-lg"
+  >
+    <h3 className="text-lg font-semibold mb-2">{shipment.name}</h3>
+    <p className="text-gray-600 mb-4 flex-grow">{shipment.description}</p>
+    <div className="mt-2">
+      <p className="text-sm">
+        <strong>Origin:</strong> {shipment.origin}
+      </p>
+      <p className="text-sm">
+        <strong>Start Date:</strong> {formatDate(shipment.shippingStartDate)}
+      </p>
+    </div>
+    <div className="mt-2">
+      <p className="text-sm">
+        <strong>Destination:</strong> {shipment.destination}
+      </p>
+      <p className="text-sm">
+        <strong>Expected End Date:</strong>{' '}
+        {formatDate(shipment.expectedShippingEndDate)}
+      </p>
+    </div>
+  </div>
+);
+const CustomStepper: React.FC<{ currentStep: number }> = ({ currentStep }) => {
+  const steps = milestones;
+
+  return (
+    <div className="flex justify-between w-full items-center">
+      {steps.map((step, index) => {
+        const Icon = step.icon;
+        return (
+          <div key={step.label} className="flex flex-col items-center">
+            <div
+              className={`rounded-full p-2 ${
+                index <= currentStep
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-gray-200 text-gray-500'
+              }`}
+              title={step.label}
+            >
+              <Icon size={16} />
+            </div>
+            {index < steps.length - 1 && (
+              <div className="flex-1 border-t-2 border-gray-300 mx-2"></div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const InProgressShipmentRow: React.FC<{
+  shipment: ShippingDetails;
+  onClick: (id: string) => void;
+}> = ({ shipment, onClick }) => (
+  <div
+    onClick={() => onClick(shipment.id)}
+    className="py-6 px-4 border-b border-gray-200 transition-all duration-300 ease-in-out hover:bg-blue-50 hover:shadow-lg"
+  >
+    <div className="grid grid-cols-12 gap-4 items-center">
+      <div className="col-span-2">
+        <h4 className="font-semibold">{shipment.name}</h4>
+      </div>
+      <div className="col-span-2">
+        <p className="text-sm">
+          <strong>Origin:</strong> {shipment.origin}
+        </p>
+        <p className="text-sm">
+          <strong>Start:</strong> {formatDate(shipment.shippingStartDate)}
+        </p>
+      </div>
+      <div className="col-span-6">
+        <CustomStepper currentStep={shipment.currentMilestone} />
+      </div>
+      <div className="col-span-2">
+        <p className="text-sm">
+          <strong>Destination:</strong> {shipment.destination}
+        </p>
+        <p className="text-sm">
+          <strong>Expected End:</strong>{' '}
+          {formatDate(shipment.expectedShippingEndDate)}
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const CompletedShipmentRow: React.FC<{
+  shipment: ShippingDetails;
+  onClick: (id: string) => void;
+}> = ({ shipment, onClick }) => (
+  <div
+    onClick={() => onClick(shipment.id)}
+    className="py-6 px-4 border-b border-gray-200 transition-all duration-300 ease-in-out hover:bg-blue-50 hover:shadow-lg"
+  >
+    <div className="grid grid-cols-12 gap-4 items-center">
+      <div className="col-span-4">
+        <h4 className="font-semibold">{shipment.name}</h4>
+      </div>
+      <div className="col-span-4">
+        <p className="text-sm">
+          <strong>Origin:</strong> {shipment.origin}
+        </p>
+        <p className="text-sm">
+          <strong>Start:</strong> {formatDate(shipment.shippingStartDate)}
+        </p>
+      </div>
+      <div className="col-span-4">
+        <p className="text-sm">
+          <strong>Destination:</strong> {shipment.destination}
+        </p>
+        <p className="text-sm">
+          <strong>End:</strong> {formatDate(shipment.expectedShippingEndDate)}
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const ShipmentDashboard: React.FC<{
+  activeShipments: ShippingDetails[];
+  inProgressShipments: ShippingDetails[];
+  completedShipments: ShippingDetails[];
+  onClickShipment: (id: string) => void;
+}> = ({
+  activeShipments,
+  inProgressShipments,
+  completedShipments,
+  onClickShipment,
+}) => {
+  // Distribute active shipments across three columns
+  const activeShipmentColumns: ShippingDetails[][] = [[], [], []];
+  activeShipments.forEach((shipment, index) => {
+    activeShipmentColumns[index % 3].push(shipment);
+  });
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h1 className="text-3xl font-bold mb-8">Deals</h1>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Active</h2>
+      {activeShipments.length > 0 ? (
+        <div className="flex flex-col md:flex-row md:space-x-6">
+          {activeShipmentColumns.map((column, columnIndex) => (
+            <div key={columnIndex} className="flex-1">
+              {column.map((shipment) => (
+                <ActiveShipmentCard
+                  onClick={onClickShipment}
+                  key={shipment.id}
+                  shipment={shipment}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No active deals</p>
+      )}
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">In Progress</h2>
+      {inProgressShipments.length > 0 ? (
+        <div className="bg-white shadow rounded-lg overflow-hidden">
+          {inProgressShipments.map((shipment) => (
+            <InProgressShipmentRow
+              onClick={onClickShipment}
+              key={shipment.id}
+              shipment={shipment}
+            />
+          ))}
+        </div>
+      ) : (
+        <p>No in-progress deals</p>
+      )}
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Completed</h2>
+      {completedShipments.length > 0 ? (
+        <div className="bg-white shadow rounded-lg overflow-hidden">
+          {completedShipments.map((shipment) => (
+            <CompletedShipmentRow
+              onClick={onClickShipment}
+              key={shipment.id}
+              shipment={shipment}
+            />
+          ))}
+        </div>
+      ) : (
+        <p>No completed deals</p>
+      )}
+    </div>
+  );
+};
 
 function ShipmentsList() {
-  const [shipments, setShipments] = useState<ShippingDetails[]>([]);
+  const [activeShipments, setActiveShipments] = useState<ShippingDetails[]>();
+  const [inProgressShipments, setinProgressShipments] =
+    useState<ShippingDetails[]>();
+  const [completedShipments, setcompletedShipments] =
+    useState<ShippingDetails[]>();
 
   useEffect(() => {
     trumarket_icp_app_backend.getShipmentsList().then((shipments) => {
-      setShipments(shipments as any);
+      setActiveShipments(
+        shipments.filter(
+          (shipment) =>
+            shipment.status === 'proposal' ||
+            (shipment.status === 'confirmed' &&
+              +shipment.currentMilestone === 0)
+        ) as any
+      );
+
+      setinProgressShipments(
+        shipments.filter(
+          (shipment) =>
+            shipment.status === 'confirmed' && +shipment.currentMilestone > 0
+        ) as any
+      );
+
+      setcompletedShipments(
+        shipments.filter((shipment) => shipment.status === 'finished') as any
+      );
     });
   }, []);
 
-  const createShipment = async () => {
-    const newShipment: ShippingDetails = {
-      id: 'new-id' + Math.random(),
-      name: 'New Shipment',
-      status: 'Pending' as DealStatus,
-      contractId: 'new-contract-id',
-      origin: 'Origin',
-      destination: 'Destination',
-      presentation: 'Presentation',
-      variety: 'Variety',
-      docs: [],
-      portOfDestination: 'Port of Destination',
-      portOfOrigin: 'Port of Origin',
-      buyerCompany: {
-        name: 'Buyer Company',
-        country: 'Peru',
-        taxId: '123456789',
-      },
-      supplierCompany: {
-        name: 'Supplier Company',
-        country: 'Peru',
-        taxId: '123456789',
-      },
-      shippingStartDate: new Date().toISOString(),
-      expectedShippingEndDate: new Date().toISOString(),
-      currentMilestone: 0,
-      milestones: [],
-      duration: 'Duration',
-      daysLeft: 0,
-      quality: 'Quality',
-      offerUnitPrice: 0,
-      quantity: 0,
-      transport: ITransportType.BY_AIR as string,
-      description: 'Description of the shipment',
-      nftID: 0,
-      mintTxHash: 'mint-tx-hash',
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      // Add other fields as necessary
-    };
+  const loadSampleData = async () => {
+    deals.forEach(async (deal) => {
+      const newShipment: ShippingDetails = {
+        ...deal,
+        id: deal._id,
+        description: deal.description || '',
+        status: deal.status,
+        milestones: deal.milestones.map((milestone) => ({
+          id: milestone._id,
+          fundsDistribution: milestone.fundsDistribution,
+          description: milestone.description,
+          docs: milestone.docs || [],
+        })),
+        nftID: deal.nftID || 0,
+        mintTxHash: deal.mintTxHash || '',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
 
-    await trumarket_icp_app_backend.createShipment(newShipment);
+      await trumarket_icp_app_backend.createShipment(newShipment);
 
-    setShipments([...shipments, newShipment]);
+      window.location.reload();
+    });
   };
+
+  const navigate = useNavigate();
+
+  const redirectToShipmentDetails = (shipmentId: string) => {
+    navigate(`/shipments/${shipmentId}`);
+  };
+
+  if (!activeShipments && !inProgressShipments && !completedShipments) {
+    return <></>;
+  }
 
   return (
     <>
-      <h4 className="mt-6 mb-8 text-2xl font-bold mb-4">Shipments</h4>
-      <button
-        onClick={createShipment}
+      {/* <button
+        onClick={loadSampleData}
         className="mb-4 p-2 bg-blue-500 text-white rounded"
       >
-        Create Shipment
-      </button>
-      <>
-        {shipments.map((shipment, i) => (
-          <div className="mb-8" key={i}>
-            <ShipmentBox
-              notStarted={!hasDocsWithLength(shipment.milestones)}
-              shipment={shipment}
-              status={shipment.status as DealStatus}
-            />
-          </div>
-        ))}
-      </>
+        Load data sample
+      </button> */}
+      <ShipmentDashboard
+        onClickShipment={redirectToShipmentDetails}
+        activeShipments={activeShipments || []}
+        inProgressShipments={inProgressShipments || []}
+        completedShipments={completedShipments || []}
+      />
     </>
   );
 }

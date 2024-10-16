@@ -1,0 +1,2185 @@
+[
+  {
+    "_id": "6657ab4b0731399c58d79597",
+    "name": "Fresh Avocado",
+    "description": "TEST CONTRACT",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "Spain",
+    "portOfOrigin": "Callao",
+    "portOfDestination": "Algeciras",
+    "transport": "sea_fright",
+    "presentation": "Carton x 4 Kg",
+    "variety": "Hass",
+    "quality": "CAT1",
+    "offerUnitPrice": 8,
+    "quantity": 5280,
+    "shippingStartDate": "2024-06-05T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-06-29T22:25:13.861+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 20,
+        "approvalStatus": "pending",
+        "_id": "6657ada20731399c58d796c4",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6657ada20731399c58d796c5",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 40,
+        "approvalStatus": "pending",
+        "_id": "6657ada20731399c58d796c6",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6657ada20731399c58d796c7",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 40,
+        "approvalStatus": "pending",
+        "_id": "6657ada20731399c58d796c8",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6657ada20731399c58d796c9",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6657ada20731399c58d796ca",
+        "docs": []
+      }
+    ],
+    "status": "confirmed",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6657ad0f0731399c58d79674",
+        "email": "alessandro.cordano@trumarket.tech",
+        "approved": true,
+        "new": false,
+        "_id": "6657ab4b0731399c58d7959f"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "664f43f8ea33ba8ed6b9d976",
+        "email": "alessandro@holyfruitperu.com",
+        "approved": true,
+        "new": false,
+        "_id": "6657ab4b0731399c58d795a0"
+      },
+      {
+        "id": "6657ac5e0731399c58d795d5",
+        "email": "ventas@holyfruitperu.com",
+        "approved": true,
+        "new": false,
+        "_id": "6657ab4b0731399c58d795a1"
+      }
+    ],
+    "buyerCompany": {
+      "name": "AGRO SMART CONTRACTS LDA",
+      "country": "Portugal",
+      "taxId": "PT517935392",
+      "_id": "6657ada20731399c58d796c3"
+    },
+    "supplierCompany": {
+      "name": "TRU MARKET BLOCKCHAIN S.A.C",
+      "country": "Peru",
+      "taxId": "20608082281",
+      "_id": "6657ada20731399c58d796c2"
+    },
+    "newForBuyer": false,
+    "newForSupplier": false,
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0,
+    "mintTxHash": "0x06601eee67388886fe7d7688ee08c881bb8727cee7a763bec2804c656b0288e4",
+    "nftID": 4
+  },
+  {
+    "_id": "66589147a5293b492342ae2d",
+    "name": "Fresh Mandarins",
+    "description": "PO#OM1404",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "United States",
+    "portOfOrigin": "Callao",
+    "portOfDestination": "Los Angeles",
+    "transport": "sea_fright",
+    "presentation": "Carton x 10Kg",
+    "variety": "W. Murcott",
+    "quality": "CAT1",
+    "offerUnitPrice": 13.1,
+    "quantity": 2296,
+    "shippingStartDate": "2024-06-06T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-06-30T14:46:30.601+0000",
+    "currentMilestone": 7,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 90,
+        "approvalStatus": "approved",
+        "_id": "66589147a5293b492342ae2e",
+        "docs": [
+          {
+            "description": "Cosecha 4.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1717084201696-Cosecha%204.jpg",
+            "_id": "6658a0296326295608ebd018"
+          },
+          {
+            "description": "Cosecha 3.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1717084203344-Cosecha%203.jpg",
+            "_id": "6658a02b6326295608ebd033"
+          },
+          {
+            "description": "Cosecha 2.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1717084203995-Cosecha%202.jpg",
+            "_id": "6658a02c6326295608ebd050"
+          },
+          {
+            "description": "Cosecha 1.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1717084205221-Cosecha%201.jpg",
+            "_id": "6658a02d6326295608ebd06f"
+          },
+          {
+            "description": "PO#OM1404.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1717084243809-PO%23OM1404.pdf",
+            "_id": "6658a0536326295608ebd0a0"
+          }
+        ]
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "66589147a5293b492342ae2f",
+        "docs": [
+          {
+            "description": "Imagen de WhatsApp 2024-06-12 a las 08.12.10_3bd93966.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718312494537-Imagen%20de%20WhatsApp%202024-06-12%20a%20las%2008.12.10_3bd93966.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "666b5e2e0b1b5991fc624ba4"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-06-08 a las 18.37.51_aa290ae7.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718312649385-Imagen%20de%20WhatsApp%202024-06-08%20a%20las%2018.37.51_aa290ae7.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "666b5ec90b1b5991fc624c17"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-06-11 a las 10.53.28_6877514e.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718312679219-Imagen%20de%20WhatsApp%202024-06-11%20a%20las%2010.53.28_6877514e.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "666b5ee70b1b5991fc624c56"
+          },
+          {
+            "description": "20610491104-09-EG07-292.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718314835883-20610491104-09-EG07-292.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "666b67530b1b5991fc624ec0"
+          },
+          {
+            "description": "20610491104-09-EG07-295.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718314901708-20610491104-09-EG07-295.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "666b67950b1b5991fc624f45"
+          },
+          {
+            "description": "20610491104-09-EG07-296.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718314927796-20610491104-09-EG07-296.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "666b67af0b1b5991fc624fd0"
+          },
+          {
+            "description": "20610491104-09-EG07-294.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718315035371-20610491104-09-EG07-294.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "666b681b0b1b5991fc6250a7"
+          }
+        ]
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "66589147a5293b492342ae30",
+        "docs": [
+          {
+            "description": "TRAZABILIDAD_VILLAVENTURA_WMURCOTT_11062024(CITRICO-E-AGP-0425.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718734518991-TRAZABILIDAD_VILLAVENTURA_WMURCOTT_11062024%28CITRICO-E-AGP-0425.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671ceb70b1b5991fc6271d7"
+          },
+          {
+            "description": "TRAZABILIDAD_VILLAVENTURA_WMURCOTT_11062024(CITRICO-E-AGP-0425-.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718734519679-TRAZABILIDAD_VILLAVENTURA_WMURCOTT_11062024%28CITRICO-E-AGP-0425-.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671ceb70b1b5991fc62720f"
+          },
+          {
+            "description": "Video de WhatsApp 2024-06-18 a las 13.22.35_0c35b1d9.mp4",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718734966608-Video%20de%20WhatsApp%202024-06-18%20a%20las%2013.22.35_0c35b1d9.mp4",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d0760b1b5991fc627304"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-06-18 a las 13.24.58_d3c51667.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718735106029-Imagen%20de%20WhatsApp%202024-06-18%20a%20las%2013.24.58_d3c51667.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d1020b1b5991fc627392"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-06-18 a las 13.26.28_5a3b78fc.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718735194432-Imagen%20de%20WhatsApp%202024-06-18%20a%20las%2013.26.28_5a3b78fc.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d15a0b1b5991fc6273ec"
+          },
+          {
+            "description": "VILLAVENTURA - 1555.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718735410959-VILLAVENTURA%20-%201555.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d2330b1b5991fc6274c1"
+          }
+        ]
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "66589147a5293b492342ae31",
+        "docs": [
+          {
+            "description": "2. PL_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718737039596-2.%20PL_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015",
+              "6654d0eaea33ba8ed6ba60a7"
+            ],
+            "_id": "6671d88f0b1b5991fc627bee"
+          },
+          {
+            "description": "BK_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718737107215-BK_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d8d30b1b5991fc627ccf"
+          },
+          {
+            "description": "1. E001-106_241064978_OPEN MARKETS CORPORATION.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718737132121-1.%20E001-106_241064978_OPEN%20MARKETS%20CORPORATION.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d8ec0b1b5991fc627df8"
+          },
+          {
+            "description": "G.R EG07-300 VILLAVENTURA PRODUCE S.A.C..pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718737223245-G.R%20EG07-300%20VILLAVENTURA%20PRODUCE%20S.A.C..pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d9470b1b5991fc627eeb"
+          },
+          {
+            "description": "20107012011-31-EG03-18429.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718737237952-20107012011-31-EG03-18429.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d9560b1b5991fc627f57"
+          },
+          {
+            "description": "Video de WhatsApp 2024-06-11 a las 12.46.08_82b95b28.mp4",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718737306487-Video+de+WhatsApp+2024-06-11+a+las+12.46.08_82b95b28.mp4",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d99a0b1b5991fc62800d"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-06-18 a las 14.01.47_340a9156.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718737324974-Imagen%20de%20WhatsApp%202024-06-18%20a%20las%2014.01.47_340a9156.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d9ad0b1b5991fc6280c8"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-06-18 a las 14.01.47_148ac68e.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718737328856-Imagen%20de%20WhatsApp%202024-06-18%20a%20las%2014.01.47_148ac68e.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671d9b00b1b5991fc62813d"
+          }
+        ]
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 10,
+        "approvalStatus": "approved",
+        "_id": "66589147a5293b492342ae32",
+        "docs": [
+          {
+            "description": "FDA - 2024_AGRILEZA.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718738016940-FDA%20-%202024_AGRILEZA.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671dc610b1b5991fc628820"
+          },
+          {
+            "description": "4. CO_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718738026623-4.%20CO_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671dc6a0b1b5991fc6288ce"
+          },
+          {
+            "description": "5. BL_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718738191568-5.%20BL_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015",
+              "6654d0eaea33ba8ed6ba60a7"
+            ],
+            "_id": "6671dd0f0b1b5991fc628cd5"
+          },
+          {
+            "description": "241064978 TB.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1718738252663-241064978%20TB.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "6671dd4c0b1b5991fc628da9"
+          }
+        ]
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "66589147a5293b492342ae33",
+        "docs": [
+          {
+            "description": "1718738191568-5. BL_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1719426158288-1718738191568-5.%20BL_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "667c5c6e0b1b5991fc62d00a"
+          },
+          {
+            "description": "241064978_MNBU3095087_2024-06-18_21-25_UTC.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1719426401999-241064978_MNBU3095087_2024-06-18_21-25_UTC.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "667c5d620b1b5991fc62d113"
+          },
+          {
+            "description": "4. CO_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1719426702178-4.%20CO_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "667c5e8e0b1b5991fc62d438"
+          },
+          {
+            "description": "1. E001-106_241064978_OPEN MARKETS CORPORATION.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1719426704821-1.%20E001-106_241064978_OPEN%20MARKETS%20CORPORATION.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "667c5e900b1b5991fc62d4c5"
+          },
+          {
+            "description": "3. FITO_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1719426750395-3.%20FITO_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "667c5ebe0b1b5991fc62d66b"
+          },
+          {
+            "description": "2. PL_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1719441140262-2.%20PL_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "667c96f40b1b5991fc62df15"
+          },
+          {
+            "description": "2. PL_241064978.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66589147a5293b492342ae2d/1719441229542-2.%20PL_241064978.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "667c974d0b1b5991fc62e15e"
+          }
+        ]
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "66589147a5293b492342ae34",
+        "docs": []
+      }
+    ],
+    "status": "finished",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6654d0eaea33ba8ed6ba60a7",
+        "email": "andresticona@openmarketscorp.com",
+        "approved": true,
+        "new": false,
+        "_id": "66589147a5293b492342ae35"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "6654cb5aea33ba8ed6ba6015",
+        "email": "rony@villaventurapro.com",
+        "approved": true,
+        "new": false,
+        "_id": "66589147a5293b492342ae36"
+      },
+      {
+        "id": "665894e86326295608ebbee4",
+        "email": "boris@villaventurapro.com",
+        "approved": true,
+        "new": false,
+        "_id": "66589147a5293b492342ae37"
+      },
+      {
+        "id": "665897246326295608ebc2dd",
+        "email": "andreti@biofarmingperu.com",
+        "approved": true,
+        "new": false,
+        "_id": "66589147a5293b492342ae38"
+      }
+    ],
+    "buyerCompany": {
+      "name": "Open markets corporation",
+      "country": "United States",
+      "taxId": "65-1078039",
+      "_id": "66589289a5293b492342aee4"
+    },
+    "supplierCompany": {
+      "name": "VILLAVENTURA PRODUCE S.A.C",
+      "country": "Peru",
+      "taxId": "20610491104",
+      "_id": "66589147a5293b492342ae3a"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0,
+    "mintTxHash": "0xf12bd9eed8f1b9b90be9cd30e10f3f261fc8194ad9953ea7a1c531d007e82d83",
+    "nftID": 7
+  },
+  {
+    "_id": "6659f7d26326295608ec2794",
+    "name": "Fresh Blueberries",
+    "description": "PO#0001",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "India",
+    "portOfOrigin": "Callao",
+    "portOfDestination": "Mumbai",
+    "transport": "by_air",
+    "presentation": "Carton x 1,5Kg",
+    "variety": "Biloxi",
+    "quality": "CAT2",
+    "offerUnitPrice": 11,
+    "quantity": 1080,
+    "shippingStartDate": "2024-07-31T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-07-01T16:16:16.305+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 10,
+        "approvalStatus": "pending",
+        "_id": "6659f81f6326295608ec27fd",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 50,
+        "approvalStatus": "pending",
+        "_id": "6659f81f6326295608ec27fe",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6659f81f6326295608ec27ff",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6659f81f6326295608ec2800",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 40,
+        "approvalStatus": "pending",
+        "_id": "6659f81f6326295608ec2801",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6659f81f6326295608ec2802",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6659f81f6326295608ec2803",
+        "docs": []
+      }
+    ],
+    "status": "proposal",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6657ad0f0731399c58d79674",
+        "email": "alessandro.cordano@trumarket.tech",
+        "approved": false,
+        "new": true,
+        "_id": "6659f7d26326295608ec279c"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "664f43f8ea33ba8ed6b9d976",
+        "email": "alessandro@holyfruitperu.com",
+        "approved": true,
+        "_id": "6659f7d26326295608ec279d"
+      },
+      {
+        "id": "6657ac5e0731399c58d795d5",
+        "email": "ventas@holyfruitperu.com",
+        "approved": false,
+        "new": true,
+        "_id": "6659f7d26326295608ec279e"
+      }
+    ],
+    "buyerCompany": {
+      "name": "",
+      "taxId": "",
+      "_id": "6659f81f6326295608ec27fc"
+    },
+    "supplierCompany": {
+      "name": "HOLY FRUIT PERU S.A.C",
+      "country": "Peru",
+      "taxId": "20608082281",
+      "_id": "6659f81f6326295608ec27fb"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0
+  },
+  {
+    "_id": "666052829c9864e33fdb3ed2",
+    "name": "Fresh Banana",
+    "contractId": 0,
+    "origin": "Ecuador",
+    "destination": "Spain",
+    "portOfOrigin": "Bolivar",
+    "portOfDestination": "Algeciras",
+    "transport": "sea_fright",
+    "presentation": "Carton x 43 lb.",
+    "variety": "Cavendish",
+    "quality": "CAT1",
+    "offerUnitPrice": 10,
+    "quantity": 1080,
+    "shippingStartDate": "2024-06-19T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-07-05T11:56:49.351+0000",
+    "currentMilestone": 1,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "666052829c9864e33fdb3ed3",
+        "docs": [
+          {
+            "description": "Cosecha1.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/666052829c9864e33fdb3ed2/1717588901126-Cosecha1.jpg",
+            "_id": "666053a59c9864e33fdb41b3"
+          },
+          {
+            "description": "Banano-producción1.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/666052829c9864e33fdb3ed2/1717588903158-Banano-producci%C3%83%C2%B3n1.jpg",
+            "_id": "666053a79c9864e33fdb41ca"
+          },
+          {
+            "description": "SAS - Certificate EOS_ND.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/666052829c9864e33fdb3ed2/1717588904355-SAS%20-%20Certificate%20EOS_ND.pdf",
+            "_id": "666053a89c9864e33fdb41e3"
+          }
+        ]
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "666052829c9864e33fdb3ed4",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "666052829c9864e33fdb3ed5",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "666052829c9864e33fdb3ed6",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 60,
+        "approvalStatus": "pending",
+        "_id": "666052829c9864e33fdb3ed7",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "666052829c9864e33fdb3ed8",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 40,
+        "approvalStatus": "pending",
+        "_id": "666052829c9864e33fdb3ed9",
+        "docs": []
+      }
+    ],
+    "status": "confirmed",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6657ad0f0731399c58d79674",
+        "email": "alessandro.cordano@trumarket.tech",
+        "approved": true,
+        "new": false,
+        "_id": "666052829c9864e33fdb3eda"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "664f43f8ea33ba8ed6b9d976",
+        "email": "alessandro@holyfruitperu.com",
+        "approved": true,
+        "new": false,
+        "_id": "666052829c9864e33fdb3edb"
+      }
+    ],
+    "buyerCompany": {
+      "name": "AGRO SMART CONTRACTS LDA",
+      "country": "Portugal",
+      "taxId": "12122113123",
+      "_id": "666052e39c9864e33fdb4018"
+    },
+    "supplierCompany": {
+      "name": "HOLY FRUIT PERU S.A.C",
+      "country": "Peru",
+      "taxId": "20608082281",
+      "_id": "666052829c9864e33fdb3edd"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0,
+    "mintTxHash": "0x7d375cdda51d616db9f12b9b8eb627da1c9bd63228f894db489c273bc1374bdf",
+    "nftID": 18
+  },
+  {
+    "_id": "66670da1ba0490753e565ca0",
+    "name": "Fresh Ginger",
+    "description": "Global Gap and GRASP certified\n\n15 pallets > 100g\n5 pallets > 40g",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "Netherlands",
+    "portOfOrigin": "Callao",
+    "portOfDestination": "Rotterdam",
+    "transport": "sea_fright",
+    "presentation": "Carton x 30 lb.",
+    "variety": "Organic",
+    "quality": "CAT1",
+    "offerUnitPrice": 31.5,
+    "quantity": 1600,
+    "shippingStartDate": "2024-06-17T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-07-10T14:28:48.426+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 0,
+        "approvalStatus": "submitted",
+        "_id": "66670da1ba0490753e565ca1",
+        "docs": [
+          {
+            "description": "IMG-20240610-WA0082.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66670da1ba0490753e565ca0/1718290045272-IMG-20240610-WA0082.jpg",
+            "seenByUsers": [
+              "666217b5408ef4b7232d4f48"
+            ],
+            "_id": "666b067d0b1b5991fc62466f"
+          },
+          {
+            "description": "IMG-20240610-WA0091.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66670da1ba0490753e565ca0/1718290056464-IMG-20240610-WA0091.jpg",
+            "seenByUsers": [
+              "666217b5408ef4b7232d4f48"
+            ],
+            "_id": "666b06880b1b5991fc624698"
+          },
+          {
+            "description": "IMG-20240610-WA0093.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66670da1ba0490753e565ca0/1718290061201-IMG-20240610-WA0093.jpg",
+            "seenByUsers": [
+              "666217b5408ef4b7232d4f48"
+            ],
+            "_id": "666b068d0b1b5991fc6246c4"
+          },
+          {
+            "description": "IMG-20240610-WA0088.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66670da1ba0490753e565ca0/1718290065082-IMG-20240610-WA0088.jpg",
+            "seenByUsers": [
+              "666217b5408ef4b7232d4f48"
+            ],
+            "_id": "666b06910b1b5991fc6246f3"
+          },
+          {
+            "description": "IMG-20240610-WA0089.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66670da1ba0490753e565ca0/1718290070621-IMG-20240610-WA0089.jpg",
+            "seenByUsers": [
+              "666217b5408ef4b7232d4f48"
+            ],
+            "_id": "666b06960b1b5991fc624725"
+          },
+          {
+            "description": "IMG-20240610-WA0085.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66670da1ba0490753e565ca0/1718290075440-IMG-20240610-WA0085.jpg",
+            "seenByUsers": [
+              "666217b5408ef4b7232d4f48"
+            ],
+            "_id": "666b069b0b1b5991fc62475a"
+          },
+          {
+            "description": "IMG-20240610-WA0092.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/66670da1ba0490753e565ca0/1718290082768-IMG-20240610-WA0092.jpg",
+            "seenByUsers": [
+              "666217b5408ef4b7232d4f48"
+            ],
+            "_id": "666b06a20b1b5991fc624792"
+          }
+        ]
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66670da1ba0490753e565ca2",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66670da1ba0490753e565ca3",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66670da1ba0490753e565ca4",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 60,
+        "approvalStatus": "pending",
+        "_id": "66670da1ba0490753e565ca5",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66670da1ba0490753e565ca6",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 40,
+        "approvalStatus": "pending",
+        "_id": "66670da1ba0490753e565ca7",
+        "docs": []
+      }
+    ],
+    "status": "confirmed",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6669756a0b1b5991fc623482",
+        "email": "jarno.moret@toffbv.nl",
+        "approved": true,
+        "new": true,
+        "_id": "66670da1ba0490753e565ca8"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "666217b5408ef4b7232d4f48",
+        "email": "rsuarez@mikhunafoods.com.pe",
+        "approved": true,
+        "new": false,
+        "_id": "66670da1ba0490753e565ca9"
+      },
+      {
+        "id": "666abe030b1b5991fc623e88",
+        "email": "lsalas@mikhunafoods.com.pe",
+        "approved": true,
+        "new": false,
+        "_id": "66670da1ba0490753e565caa"
+      }
+    ],
+    "buyerCompany": {
+      "name": "T.O.F.F. B.V.",
+      "country": "Netherlands",
+      "taxId": "NL854346533B01",
+      "_id": "666975bc0b1b5991fc6234a9"
+    },
+    "supplierCompany": {
+      "name": "MIKHUNA PERUVIAN FOODS SOLUTIONS S.A.C",
+      "country": "Peru",
+      "taxId": "20611718579",
+      "_id": "66670da1ba0490753e565cac"
+    },
+    "newDocuments": true,
+    "docs": [],
+    "__v": 0,
+    "mintTxHash": "0x6b62e90ea084f40afe75ff138e03d9ac5fab5ea11f145ffcda0e2b4049579157",
+    "nftID": 22
+  },
+  {
+    "_id": "6679ddb90b1b5991fc62b966",
+    "name": "Fresh Mandarins",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "United States",
+    "portOfOrigin": "Callao",
+    "portOfDestination": "Los Angeles",
+    "transport": "sea_fright",
+    "presentation": "Carton x 10Kg",
+    "variety": "W. Murcott",
+    "quality": "CAT1",
+    "offerUnitPrice": 14.21,
+    "quantity": 2296,
+    "shippingStartDate": "2024-06-26T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-07-24T20:57:28.486+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 90,
+        "approvalStatus": "pending",
+        "_id": "6679ddb90b1b5991fc62b967",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6679ddb90b1b5991fc62b968",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6679ddb90b1b5991fc62b969",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6679ddb90b1b5991fc62b96a",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 10,
+        "approvalStatus": "pending",
+        "_id": "6679ddb90b1b5991fc62b96b",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6679ddb90b1b5991fc62b96c",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6679ddb90b1b5991fc62b96d",
+        "docs": []
+      }
+    ],
+    "status": "cancelled",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6654d0eaea33ba8ed6ba60a7",
+        "email": "andresticona@openmarketscorp.com",
+        "approved": true,
+        "new": false,
+        "_id": "6679ddb90b1b5991fc62b96e"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "6654cb5aea33ba8ed6ba6015",
+        "email": "rony@villaventurapro.com",
+        "approved": true,
+        "new": false,
+        "_id": "6679ddb90b1b5991fc62b96f"
+      },
+      {
+        "id": "667dfb0e0b1b5991fc62ed42",
+        "email": "andres@agrofreshusa.com",
+        "new": true,
+        "_id": "6679ddb90b1b5991fc62b970"
+      },
+      {
+        "id": "665894e86326295608ebbee4",
+        "email": "boris@villaventurapro.com",
+        "new": true,
+        "_id": "6679ddb90b1b5991fc62b971"
+      }
+    ],
+    "buyerCompany": {
+      "name": "OMC",
+      "country": "United States",
+      "taxId": "65-1078039",
+      "_id": "6679ddb90b1b5991fc62b972"
+    },
+    "supplierCompany": {
+      "name": "VILLAVENTURA PRODUCE S.A.C.",
+      "country": "Peru",
+      "taxId": "20610491104",
+      "_id": "6679ddb90b1b5991fc62b973"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0
+  },
+  {
+    "_id": "6682734c0b1b5991fc631b3e",
+    "name": "Mango",
+    "description": "Additional details go here",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "Poland",
+    "portOfOrigin": "Lima",
+    "portOfDestination": "Gdańsk",
+    "transport": "sea_fright",
+    "presentation": "3kg boxes",
+    "variety": "Test variety",
+    "quality": "CAT1",
+    "offerUnitPrice": 20,
+    "quantity": 1000,
+    "shippingStartDate": "2024-09-23T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-08-01T09:13:48.653+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 10,
+        "approvalStatus": "pending",
+        "_id": "6682734c0b1b5991fc631b3f",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682734c0b1b5991fc631b40",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682734c0b1b5991fc631b41",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 40,
+        "approvalStatus": "pending",
+        "_id": "6682734c0b1b5991fc631b42",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682734c0b1b5991fc631b43",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682734c0b1b5991fc631b44",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 50,
+        "approvalStatus": "pending",
+        "_id": "6682734c0b1b5991fc631b45",
+        "docs": []
+      }
+    ],
+    "status": "confirmed",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6655af914677b48c499c4395",
+        "email": "kubakorecki@gmail.com",
+        "approved": true,
+        "new": false,
+        "_id": "6682734c0b1b5991fc631b46"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "6655ab7e4677b48c499c432f",
+        "email": "kk@revenuecapital.io",
+        "approved": true,
+        "new": false,
+        "_id": "6682734c0b1b5991fc631b47"
+      },
+      {
+        "id": "6682741d0b1b5991fc631bed",
+        "email": "kk@dexer.io",
+        "approved": true,
+        "new": false,
+        "_id": "6682734c0b1b5991fc631b48"
+      }
+    ],
+    "buyerCompany": {
+      "name": "Kuba",
+      "country": "Poland",
+      "taxId": "7584225667",
+      "_id": "668273780b1b5991fc631b89"
+    },
+    "supplierCompany": {
+      "name": "MCORP",
+      "country": "Peru",
+      "taxId": "123123123123",
+      "_id": "6682734c0b1b5991fc631b4a"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0,
+    "mintTxHash": "0x6f90e6df62c1af37da3f351af5845259c7f9047e0a0c8addd477f5289ed95c4e",
+    "nftID": 23
+  },
+  {
+    "_id": "668275470b1b5991fc631c92",
+    "name": "Kiwi",
+    "contractId": 0,
+    "origin": "Albania",
+    "destination": "Bangladesh",
+    "portOfOrigin": "ad",
+    "portOfDestination": "gtg",
+    "transport": "sea_fright",
+    "presentation": "wiadra 5-kilowe",
+    "variety": "asd",
+    "quality": "CAT1",
+    "offerUnitPrice": 42,
+    "quantity": 567,
+    "shippingStartDate": "2024-07-31T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-08-01T09:22:14.942+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275470b1b5991fc631c93",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275470b1b5991fc631c94",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275470b1b5991fc631c95",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275470b1b5991fc631c96",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275470b1b5991fc631c97",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275470b1b5991fc631c98",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 100,
+        "approvalStatus": "pending",
+        "_id": "668275470b1b5991fc631c99",
+        "docs": []
+      }
+    ],
+    "status": "confirmed",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6655af914677b48c499c4395",
+        "email": "kubakorecki@gmail.com",
+        "approved": true,
+        "new": false,
+        "_id": "668275470b1b5991fc631c9a"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "6682741d0b1b5991fc631bed",
+        "email": "kk@dexer.io",
+        "approved": true,
+        "new": false,
+        "_id": "668275470b1b5991fc631c9b"
+      }
+    ],
+    "buyerCompany": {
+      "name": "ads",
+      "country": "Afghanistan",
+      "taxId": "123132123",
+      "_id": "668275470b1b5991fc631c9c"
+    },
+    "supplierCompany": {
+      "name": "asd",
+      "country": "land Islands",
+      "taxId": "75842344566",
+      "_id": "668275470b1b5991fc631c9d"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0,
+    "mintTxHash": "0x416470633687368d710e5c0a7344565f5a29a44c8cbb6ae515752127689e4df6",
+    "nftID": 24
+  },
+  {
+    "_id": "668275b50b1b5991fc631d4b",
+    "name": "ewqwqeew",
+    "contractId": 0,
+    "origin": "land Islands",
+    "destination": "Albania",
+    "portOfOrigin": "asdsad",
+    "portOfDestination": "qqew",
+    "transport": "sea_fright",
+    "presentation": "qwq",
+    "variety": "as`",
+    "quality": "industrial",
+    "offerUnitPrice": 11,
+    "quantity": 122,
+    "shippingStartDate": "2024-07-26T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-08-01T09:24:04.855+0000",
+    "currentMilestone": 2,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "668275b50b1b5991fc631d4c",
+        "docs": [
+          {
+            "description": "FAKTURA 3.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/668275b50b1b5991fc631d4b/1719825995989-FAKTURA%203.pdf",
+            "seenByUsers": [
+              "6682741d0b1b5991fc631bed"
+            ],
+            "_id": "6682764c0b1b5991fc631f63"
+          },
+          {
+            "description": "nordic (1).jpeg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/668275b50b1b5991fc631d4b/1719826022094-nordic%20%281%29.jpeg",
+            "seenByUsers": [
+              "6682741d0b1b5991fc631bed"
+            ],
+            "_id": "668276660b1b5991fc631f88"
+          }
+        ]
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "668275b50b1b5991fc631d4d",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275b50b1b5991fc631d4e",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275b50b1b5991fc631d4f",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275b50b1b5991fc631d50",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "668275b50b1b5991fc631d51",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 100,
+        "approvalStatus": "pending",
+        "_id": "668275b50b1b5991fc631d52",
+        "docs": []
+      }
+    ],
+    "status": "confirmed",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6655af914677b48c499c4395",
+        "email": "kubakorecki@gmail.com",
+        "approved": true,
+        "new": false,
+        "_id": "668275b50b1b5991fc631d53"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "6682741d0b1b5991fc631bed",
+        "email": "kk@dexer.io",
+        "approved": true,
+        "new": false,
+        "_id": "668275b50b1b5991fc631d54"
+      }
+    ],
+    "buyerCompany": {
+      "name": "asd",
+      "country": "Afghanistan",
+      "taxId": "123312123",
+      "_id": "668275b50b1b5991fc631d55"
+    },
+    "supplierCompany": {
+      "name": "das",
+      "country": "land Islands",
+      "taxId": "12312312312",
+      "_id": "668275b50b1b5991fc631d56"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0,
+    "mintTxHash": "0xd888c6b9b21917f3dd36ca1ee227176a824130175dac7374592edf895f5fe63b",
+    "nftID": 25
+  },
+  {
+    "_id": "6682784d0b1b5991fc632665",
+    "name": "ewqwqeew",
+    "contractId": 0,
+    "origin": "Ukraine",
+    "destination": "Yemen",
+    "portOfOrigin": "asd",
+    "portOfDestination": "asdgfgfgfd",
+    "transport": "by_air",
+    "presentation": "1kg cartoon",
+    "variety": "as",
+    "quality": "CAT1",
+    "offerUnitPrice": 12,
+    "quantity": 1233,
+    "shippingStartDate": "2024-07-30T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-08-01T09:35:09.066+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682784d0b1b5991fc632666",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682784d0b1b5991fc632667",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682784d0b1b5991fc632668",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682784d0b1b5991fc632669",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682784d0b1b5991fc63266a",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6682784d0b1b5991fc63266b",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 100,
+        "approvalStatus": "pending",
+        "_id": "6682784d0b1b5991fc63266c",
+        "docs": []
+      }
+    ],
+    "status": "proposal",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6655af914677b48c499c4395",
+        "email": "kubakorecki@gmail.com",
+        "new": true,
+        "_id": "6682784d0b1b5991fc63266d"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "6682741d0b1b5991fc631bed",
+        "email": "kk@dexer.io",
+        "approved": true,
+        "_id": "6682784d0b1b5991fc63266e"
+      }
+    ],
+    "buyerCompany": {
+      "name": "vcdfvdfdbdbfbfd",
+      "country": "Algeria",
+      "taxId": "12351453",
+      "_id": "6682784d0b1b5991fc63266f"
+    },
+    "supplierCompany": {
+      "name": "das",
+      "country": "Virgin Islands, British",
+      "taxId": "123312123123",
+      "_id": "6682784d0b1b5991fc632670"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0
+  },
+  {
+    "_id": "66827a2d0b1b5991fc632ce4",
+    "name": "Fresh Avocado",
+    "description": "PO ASC AVO 072024-1\n\nGlobal Gap certification\nPrices per size, according to PO\nMRL EU compliant",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "Spain",
+    "portOfOrigin": "Callao",
+    "portOfDestination": "Algeciras",
+    "transport": "sea_fright",
+    "presentation": "Plastic tray x 10 Kg",
+    "variety": "Hass",
+    "quality": "CAT1",
+    "offerUnitPrice": 19.31,
+    "quantity": 2400,
+    "shippingStartDate": "2024-07-06T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-08-01T09:43:08.176+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 20,
+        "approvalStatus": "pending",
+        "_id": "66827a2d0b1b5991fc632ce5",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66827a2d0b1b5991fc632ce6",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 30,
+        "approvalStatus": "pending",
+        "_id": "66827a2d0b1b5991fc632ce7",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 40,
+        "approvalStatus": "pending",
+        "_id": "66827a2d0b1b5991fc632ce8",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66827a2d0b1b5991fc632ce9",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66827a2d0b1b5991fc632cea",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 10,
+        "approvalStatus": "pending",
+        "_id": "66827a2d0b1b5991fc632ceb",
+        "docs": []
+      }
+    ],
+    "status": "proposal",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6657ad0f0731399c58d79674",
+        "email": "alessandro.cordano@trumarket.tech",
+        "approved": true,
+        "_id": "66827a2d0b1b5991fc632cec"
+      },
+      {
+        "email": "chiara.rivas@trumarket.tech",
+        "new": true,
+        "_id": "66827a2d0b1b5991fc632ced",
+        "id": "66fc0a700b1b5991fc6480f8"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "6654cb5aea33ba8ed6ba6015",
+        "email": "rony@villaventurapro.com",
+        "approved": true,
+        "new": false,
+        "_id": "66827a2d0b1b5991fc632cee"
+      },
+      {
+        "id": "665894e86326295608ebbee4",
+        "email": "boris@villaventurapro.com",
+        "approved": true,
+        "new": false,
+        "_id": "66827a2d0b1b5991fc632cef"
+      },
+      {
+        "id": "667dfb0e0b1b5991fc62ed42",
+        "email": "andres@agrofreshusa.com",
+        "approved": true,
+        "new": false,
+        "_id": "66827a2d0b1b5991fc632cf0"
+      }
+    ],
+    "buyerCompany": {
+      "name": "AGRO SMART CONTRACTS LDA",
+      "country": "Portugal",
+      "taxId": "PT517935392",
+      "_id": "66827a2d0b1b5991fc632cf1"
+    },
+    "supplierCompany": {
+      "name": "VILLAVENTURA PRODUCE S.A.C",
+      "country": "Peru",
+      "taxId": "20610491104",
+      "_id": "66827a2d0b1b5991fc632cf2"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0
+  },
+  {
+    "_id": "6682ca330b1b5991fc633168",
+    "name": "Fresh Mandarins ",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "United States",
+    "portOfOrigin": "Callao",
+    "portOfDestination": "Los Angeles",
+    "transport": "sea_fright",
+    "presentation": "Box 10 Kg",
+    "variety": "W. Murcott",
+    "quality": "CAT1",
+    "offerUnitPrice": 14.2,
+    "quantity": 2296,
+    "shippingStartDate": "2024-06-28T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-08-01T15:24:33.971+0000",
+    "currentMilestone": 5,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "6684079a0b1b5991fc635211",
+        "docs": [
+          {
+            "description": "PO# - GE1095.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1719930106736-PO%23%20-%20GE1095.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66840cfa0b1b5991fc635d30"
+          },
+          {
+            "description": "20610491104-09-EG07-348 LOS ANDES.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1719930217699-20610491104-09-EG07-348%20LOS%20ANDES.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66840d690b1b5991fc635f4a"
+          },
+          {
+            "description": "CLP Hacienda Los Andes 2024.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1719930228490-CLP%20Hacienda%20Los%20Andes%202024.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66840d740b1b5991fc635f66"
+          },
+          {
+            "description": "EVALUACION DE MP.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1719930229777-EVALUACION%20DE%20MP.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66840d750b1b5991fc635f84"
+          },
+          {
+            "description": "IMG_0676.jpeg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1721135170074-IMG_0676.jpeg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "669670420b1b5991fc63af8f"
+          },
+          {
+            "description": "IMG_0677.jpeg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1721135173188-IMG_0677.jpeg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "669670450b1b5991fc63afb1"
+          },
+          {
+            "description": "IMG_0674.jpeg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1721135175200-IMG_0674.jpeg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "669670470b1b5991fc63b006"
+          }
+        ]
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 90,
+        "approvalStatus": "approved",
+        "_id": "6684079a0b1b5991fc635212",
+        "docs": [
+          {
+            "description": "Imagen de WhatsApp 2024-07-31 a las 19.41.58_d59368fe.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722473010536-Imagen%20de%20WhatsApp%202024-07-31%20a%20las%2019.41.58_d59368fe.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66aada320b1b5991fc63e750"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-07-31 a las 19.41.58_127c04d2.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722473011780-Imagen%20de%20WhatsApp%202024-07-31%20a%20las%2019.41.58_127c04d2.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66aada330b1b5991fc63e778"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-07-31 a las 19.41.58_f5fb6011.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722473012404-Imagen%20de%20WhatsApp%202024-07-31%20a%20las%2019.41.58_f5fb6011.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66aada340b1b5991fc63e7a2"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-07-31 a las 19.41.58_4d5b5e7e.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722473013052-Imagen%20de%20WhatsApp%202024-07-31%20a%20las%2019.41.58_4d5b5e7e.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66aada350b1b5991fc63e7ce"
+          }
+        ]
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "6684079a0b1b5991fc635213",
+        "docs": [
+          {
+            "description": "2. PL_241147985.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722526964509-2.%20PL_241147985.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66abacf40b1b5991fc63edf9"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-08-01 a las 11.20.33_470fea9d.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722529414653-Imagen%20de%20WhatsApp%202024-08-01%20a%20las%2011.20.33_470fea9d.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66abb6860b1b5991fc63f399"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-08-01 a las 11.20.34_50989ca2.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722529415270-Imagen%20de%20WhatsApp%202024-08-01%20a%20las%2011.20.34_50989ca2.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66abb6870b1b5991fc63f3cb"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-08-01 a las 11.20.34_494021cb.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722529415859-Imagen%20de%20WhatsApp%202024-08-01%20a%20las%2011.20.34_494021cb.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66abb6870b1b5991fc63f3ff"
+          },
+          {
+            "description": "Imagen de WhatsApp 2024-08-01 a las 11.20.34_a1b47753.jpg",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1722529416412-Imagen%20de%20WhatsApp%202024-08-01%20a%20las%2011.20.34_a1b47753.jpg",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66abb6880b1b5991fc63f435"
+          }
+        ]
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "approved",
+        "_id": "6684079a0b1b5991fc635214",
+        "docs": [
+          {
+            "description": "GR EG07-306_ BK 241147985.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1726082488154-GR%20EG07-306_%20BK%20241147985.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66e1edb80b1b5991fc6456c0"
+          },
+          {
+            "description": "1. E001-108_241147985_OPEN MARKETS CORPORATION.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1726082488518-1.%20E001-108_241147985_OPEN%20MARKETS%20CORPORATION.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66e1edb80b1b5991fc6456fa"
+          }
+        ]
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 10,
+        "approvalStatus": "approved",
+        "_id": "6684079a0b1b5991fc635215",
+        "docs": [
+          {
+            "description": "4. CO_241147985.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1726163888368-4.%20CO_241147985.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66e32bb00b1b5991fc645c9e"
+          },
+          {
+            "description": "FDA - 2024_AGRILEZA (1).pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1726163889602-FDA%20-%202024_AGRILEZA%20%281%29.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66e32bb10b1b5991fc645cdc"
+          },
+          {
+            "description": "ISF   241147985 - VILLAVENTURA Port Everglades.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1726163970492-ISF%20%20%20241147985%20-%20VILLAVENTURA%20Port%20Everglades.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66e32c020b1b5991fc645e4b"
+          }
+        ]
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6684079a0b1b5991fc635216",
+        "docs": [
+          {
+            "description": "3. FITO_241147985.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1726165645863-3.%20FITO_241147985.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66e3328d0b1b5991fc64620e"
+          },
+          {
+            "description": "5. BL_241147985.pdf",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/6682ca330b1b5991fc633168/1726165646445-5.%20BL_241147985.pdf",
+            "seenByUsers": [
+              "6654cb5aea33ba8ed6ba6015"
+            ],
+            "_id": "66e3328e0b1b5991fc646252"
+          }
+        ]
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "6684079a0b1b5991fc635217",
+        "docs": []
+      }
+    ],
+    "status": "confirmed",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "6654d0eaea33ba8ed6ba60a7",
+        "email": "andresticona@openmarketscorp.com",
+        "approved": true,
+        "new": false,
+        "_id": "6682ca330b1b5991fc633170"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "6654cb5aea33ba8ed6ba6015",
+        "email": "rony@villaventurapro.com",
+        "approved": true,
+        "new": false,
+        "_id": "6682ca330b1b5991fc633171"
+      }
+    ],
+    "buyerCompany": {
+      "name": "Open Markets Corporation",
+      "country": "United States",
+      "taxId": "65-1078039",
+      "_id": "6684079a0b1b5991fc635210"
+    },
+    "supplierCompany": {
+      "name": "Villaventura Produce Sac",
+      "country": "Peru",
+      "taxId": "20610491104",
+      "_id": "6684079a0b1b5991fc63520f"
+    },
+    "newDocuments": true,
+    "docs": [],
+    "__v": 0,
+    "description": "",
+    "mintTxHash": "0xf3a825538e0b42c2157f902ef8da4f321fb17486b881ff1ad878bfebba11fc29",
+    "nftID": 26
+  },
+  {
+    "_id": "66fb1eb20b1b5991fc6479ff",
+    "name": "Arándano fresco",
+    "description": "ALL GOOD.",
+    "contractId": 0,
+    "origin": "Peru",
+    "destination": "Netherlands",
+    "portOfOrigin": "Callao",
+    "portOfDestination": "Rotterdam",
+    "transport": "sea_fright",
+    "presentation": "Carton x 3kg",
+    "variety": "Ventura",
+    "quality": "CAT1",
+    "offerUnitPrice": 30,
+    "quantity": 1000,
+    "shippingStartDate": "2024-10-08T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-10-30T21:57:05.301+0000",
+    "currentMilestone": 0,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 10,
+        "approvalStatus": "pending",
+        "_id": "66fb1eb20b1b5991fc647a00",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66fb1eb20b1b5991fc647a01",
+        "docs": []
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 50,
+        "approvalStatus": "pending",
+        "_id": "66fb1eb20b1b5991fc647a02",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66fb1eb20b1b5991fc647a03",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 30,
+        "approvalStatus": "pending",
+        "_id": "66fb1eb20b1b5991fc647a04",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "66fb1eb20b1b5991fc647a05",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 10,
+        "approvalStatus": "pending",
+        "_id": "66fb1eb20b1b5991fc647a06",
+        "docs": []
+      }
+    ],
+    "status": "proposal",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "email": "christian@agrofresh.com",
+        "new": true,
+        "_id": "66fb1eb20b1b5991fc647a07"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "664f43f8ea33ba8ed6b9d976",
+        "email": "alessandro@holyfruitperu.com",
+        "approved": true,
+        "_id": "66fb1eb20b1b5991fc647a08"
+      },
+      {
+        "email": "chiara.rivas@trumarket.tech",
+        "new": true,
+        "_id": "66fb1eb20b1b5991fc647a09",
+        "id": "66fc0a700b1b5991fc6480f8"
+      }
+    ],
+    "buyerCompany": {
+      "name": "AGRO FRESH",
+      "country": "United States",
+      "taxId": "1201299123",
+      "_id": "66fb1eb20b1b5991fc647a0a"
+    },
+    "supplierCompany": {
+      "name": "TRU MARKET",
+      "country": "Peru",
+      "taxId": "20608082281",
+      "_id": "66fb1eb20b1b5991fc647a0b"
+    },
+    "newDocuments": false,
+    "docs": [],
+    "__v": 0
+  },
+  {
+    "_id": "67065aed0b1b5991fc649047",
+    "name": "Grapes",
+    "contractId": 0,
+    "origin": "land Islands",
+    "destination": "land Islands",
+    "portOfOrigin": "Bagdad",
+    "portOfDestination": "X",
+    "transport": "sea_fright",
+    "presentation": "3kg box",
+    "variety": "A",
+    "quality": "CAT1",
+    "offerUnitPrice": 12,
+    "quantity": 1,
+    "shippingStartDate": "2024-10-31T00:00:00.000+0000",
+    "expectedShippingEndDate": "2024-11-09T11:29:01.210+0000",
+    "currentMilestone": 1,
+    "milestones": [
+      {
+        "description": "production_and_fields",
+        "fundsDistribution": 10,
+        "approvalStatus": "approved",
+        "_id": "67065aed0b1b5991fc649048",
+        "docs": []
+      },
+      {
+        "description": "packaging_and_process",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "67065aed0b1b5991fc649049",
+        "docs": [
+          {
+            "description": "1709895713063-mvxybr1prj0qrk7m.webp",
+            "url": "https://trumarket-dev-bucket.s3.eu-west-1.amazonaws.com/deals/67065aed0b1b5991fc649047/1728727818139-1709895713063-mvxybr1prj0qrk7m.webp",
+            "seenByUsers": [
+              "663d04f63e8b05bb077687ee"
+            ],
+            "_id": "670a4b0a3fdd80df807357fc"
+          }
+        ]
+      },
+      {
+        "description": "finished_product_and_storage",
+        "fundsDistribution": 20,
+        "approvalStatus": "pending",
+        "_id": "67065aed0b1b5991fc64904a",
+        "docs": []
+      },
+      {
+        "description": "transport_to_port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "67065aed0b1b5991fc64904b",
+        "docs": []
+      },
+      {
+        "description": "port_of_origin",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "67065aed0b1b5991fc64904c",
+        "docs": []
+      },
+      {
+        "description": "transit",
+        "fundsDistribution": 0,
+        "approvalStatus": "pending",
+        "_id": "67065aed0b1b5991fc64904d",
+        "docs": []
+      },
+      {
+        "description": "port_of_destination",
+        "fundsDistribution": 70,
+        "approvalStatus": "pending",
+        "_id": "67065aed0b1b5991fc64904e",
+        "docs": []
+      }
+    ],
+    "status": "confirmed",
+    "investmentAmount": 0,
+    "revenue": 0,
+    "netBalance": 0,
+    "roi": 0,
+    "buyers": [
+      {
+        "id": "665737d40731399c58d78889",
+        "email": "fabiomartinho_89@hotmail.com",
+        "approved": true,
+        "new": false,
+        "_id": "67065aed0b1b5991fc64904f"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "663d04f63e8b05bb077687ee",
+        "email": "martinhoferreira10@gmail.com",
+        "approved": true,
+        "new": false,
+        "_id": "67065aed0b1b5991fc649050"
+      },
+      {
+        "id": "665737d40731399c58d78889",
+        "email": "fabiomartinho_89@hotmail.com",
+        "approved": true,
+        "new": false,
+        "_id": "67065aed0b1b5991fc649051"
+      }
+    ],
+    "buyerCompany": {
+      "name": "Test",
+      "country": "land Islands",
+      "taxId": "981273",
+      "_id": "67065aed0b1b5991fc649052"
+    },
+    "supplierCompany": {
+      "name": "Test",
+      "country": "land Islands",
+      "taxId": "12343123",
+      "_id": "67065aed0b1b5991fc649053"
+    },
+    "newDocuments": true,
+    "docs": [],
+    "__v": 0,
+    "mintTxHash": "0xdee7e4d640abcb3ac9d9ed6a1417b89d8bc698deaa0ad3bfc1ba693427058354",
+    "nftID": 27
+  }
+]

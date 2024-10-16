@@ -13,8 +13,8 @@ import {
 } from 'azle/experimental';
 import { initDb } from './db';
 import { Context } from './types';
-import { ShippingDetails } from './interfaces/shipment';
-import { ShipmentDetails } from './entities/shipmentDetails.entity';
+import { ShipmentDetailsModel } from './entities/shipmentDetails.entity';
+import { ShipmentDetails } from './types/shipment';
 
 const stableDbMap = StableBTreeMap<'DATABASE', Uint8Array>(0, stableJson, {
   toBytes: (data: Uint8Array) => data,
@@ -59,15 +59,15 @@ export default Canister({
     return '0.0.2';
   }),
 
-  getShipmentsList: query([], Vec(ShippingDetails), async function (): Promise<
-    ShippingDetails[]
+  getShipmentsList: query([], Vec(ShipmentDetails), async function (): Promise<
+    ShipmentDetails[]
   > {
     if (!context.dataSource) {
       throw new Error('Data source not initialized');
     }
 
     const shipments = await context.dataSource
-      .getRepository(ShipmentDetails)
+      .getRepository(ShipmentDetailsModel)
       .find();
 
     const shipmentsSerialized = shipments.map(serializeShipment);
@@ -77,14 +77,14 @@ export default Canister({
 
   getShipmentDetails: query(
     [text],
-    ShippingDetails,
-    async function (id: string): Promise<ShippingDetails> {
+    ShipmentDetails,
+    async function (id: string): Promise<ShipmentDetails> {
       if (!context.dataSource) {
         throw new Error('Data source not initialized');
       }
 
       const shipment = await context.dataSource
-        .getRepository(ShipmentDetails)
+        .getRepository(ShipmentDetailsModel)
         .findOneBy({ id });
 
       if (!shipment) {
@@ -96,19 +96,21 @@ export default Canister({
   ),
 
   createShipment: update(
-    [ShippingDetails],
+    [ShipmentDetails],
     Void,
-    async function (shipment: ShippingDetails): Promise<void> {
+    async function (shipment: ShipmentDetails): Promise<void> {
       if (!context.dataSource) {
         throw new Error('Data source not initialized');
       }
 
-      await context.dataSource.getRepository(ShipmentDetails).insert(shipment);
+      await context.dataSource
+        .getRepository(ShipmentDetailsModel)
+        .insert(shipment);
     }
   ),
 });
 
-function serializeShipment(shipment: ShipmentDetails): ShippingDetails {
+function serializeShipment(shipment: ShipmentDetails): ShipmentDetails {
   return {
     ...shipment,
     shippingStartDate: shipment.shippingStartDate.toDateString(),

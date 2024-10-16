@@ -1,12 +1,8 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import {
-  DealStatus,
-  CompanyBaseInfo,
-  MilestoneDetails,
-} from '../interfaces/shipment';
+import { MilestoneDetails } from '../types/shipment';
 
 @Entity({ name: 'shipment_details' })
-export class ShipmentDetails extends BaseEntity {
+export class ShipmentDetailsModel extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -15,9 +11,6 @@ export class ShipmentDetails extends BaseEntity {
 
   @Column()
   status: string;
-
-  @Column({ nullable: true })
-  contractId?: string;
 
   @Column()
   origin: string;
@@ -31,20 +24,14 @@ export class ShipmentDetails extends BaseEntity {
   @Column()
   variety: string;
 
-  @Column('simple-array')
-  docs: string[];
+  @Column('json')
+  docs: any[];
 
   @Column({ nullable: true })
   portOfDestination?: string;
 
   @Column({ nullable: true })
   portOfOrigin?: string;
-
-  @Column('json')
-  buyerCompany: CompanyBaseInfo;
-
-  @Column('json')
-  supplierCompany: CompanyBaseInfo;
 
   @Column({ type: 'datetime' })
   shippingStartDate: Date;
@@ -57,12 +44,6 @@ export class ShipmentDetails extends BaseEntity {
 
   @Column('json')
   milestones: MilestoneDetails[];
-
-  @Column()
-  duration: string;
-
-  @Column()
-  daysLeft: number;
 
   @Column()
   quality: string;
