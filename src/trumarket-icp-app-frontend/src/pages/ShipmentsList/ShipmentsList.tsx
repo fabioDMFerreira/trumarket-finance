@@ -18,7 +18,7 @@ const ActiveShipmentCard: React.FC<{
 }> = ({ shipment, onClick }) => (
   <div
     onClick={() => onClick(shipment.id)}
-    className="bg-white shadow rounded-lg p-6 mb-6 flex flex-col transition-all duration-300 ease-in-out hover:bg-blue-50 hover:shadow-lg"
+    className="bg-white shadow rounded-lg p-6 mb-6 flex flex-col transition-all duration-300 ease-in-out hover:bg-gray-100 cursor-pointer hover:shadow-lg"
   >
     <h3 className="text-lg font-semibold mb-2">{shipment.name}</h3>
     <p className="text-gray-600 mb-4 flex-grow">{shipment.description}</p>
@@ -76,7 +76,7 @@ const InProgressShipmentRow: React.FC<{
 }> = ({ shipment, onClick }) => (
   <div
     onClick={() => onClick(shipment.id)}
-    className="py-6 px-4 border-b border-gray-200 transition-all duration-300 ease-in-out hover:bg-blue-50 hover:shadow-lg"
+    className="py-6 px-4 border-b border-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-100 cursor-pointer hover:shadow-lg"
   >
     <div className="grid grid-cols-12 gap-4 items-center">
       <div className="col-span-2">
@@ -112,7 +112,7 @@ const CompletedShipmentRow: React.FC<{
 }> = ({ shipment, onClick }) => (
   <div
     onClick={() => onClick(shipment.id)}
-    className="py-6 px-4 border-b border-gray-200 transition-all duration-300 ease-in-out hover:bg-blue-50 hover:shadow-lg"
+    className="py-6 px-4 border-b border-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-100 cursor-pointer hover:shadow-lg"
   >
     <div className="grid grid-cols-12 gap-4 items-center">
       <div className="col-span-4">

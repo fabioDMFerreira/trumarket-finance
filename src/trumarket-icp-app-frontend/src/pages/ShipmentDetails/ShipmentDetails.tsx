@@ -4,6 +4,7 @@ import { trumarket_icp_app_backend } from 'declarations/trumarket-icp-app-backen
 
 import { ShippingDetails } from '@/types/shipment';
 import { milestones } from '@/lib/static';
+import RecentActivityList from './RecentActivity';
 
 const formatDate = (dateString: string) => {
   if (!dateString) {
@@ -204,6 +205,7 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
               </Card>
             ))}
           </div>
+          <RecentActivityList />
         </div>
       </div>
     </div>
