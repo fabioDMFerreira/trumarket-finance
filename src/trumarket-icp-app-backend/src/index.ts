@@ -14,7 +14,7 @@ import {
 import { initDb } from './db';
 import { Context } from './types';
 import { ShipmentDetailsModel } from './entities/shipmentDetails.entity';
-import { ShipmentDetails } from './types/shipment';
+import { MilestoneDetails, ShipmentDetails } from './types/shipment';
 import { auth } from './authorization';
 
 const stableDbMap = StableBTreeMap<'DATABASE', Uint8Array>(0, stableJson, {
@@ -112,6 +112,51 @@ export default Canister({
       await context.dataSource
         .getRepository(ShipmentDetailsModel)
         .insert(shipment);
+    }
+  ),
+
+  updateMilestone: update(
+    [text, MilestoneDetails, text],
+    Void,
+    async function (
+      id: string,
+      milestone: MilestoneDetails,
+      signature: string
+    ): Promise<void> {
+      await auth(signature);
+      if (!context.dataSource) {
+        throw new Error('Data source not initialized');
+      }
+
+      const shipment = await context.dataSource
+        .getRepository(ShipmentDetailsModel)
+        .findOneBy({ id });
+
+      if (!shipment) {
+        throw new Error('Shipment not found');
+      }
+
+      const milestoneIndex = shipment.milestones.findIndex(
+        (m) => m.id === milestone.id
+      );
+
+      if (milestoneIndex < 0) {
+        throw new Error('Milestone not found');
+      }
+
+      if (milestoneIndex !== shipment.currentMilestone) {
+        throw new Error('Milestone not in order');
+      }
+
+      shipment.milestones[milestoneIndex] = milestone;
+
+      await context.dataSource.getRepository(ShipmentDetailsModel).update(
+        { id },
+        {
+          currentMilestone: shipment.currentMilestone + 1,
+          milestones: shipment.milestones,
+        }
+      );
     }
   ),
 });
