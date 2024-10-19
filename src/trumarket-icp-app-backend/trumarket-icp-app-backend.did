@@ -11,7 +11,7 @@ type rec_3 = record {_id:text; url:text; description:text};
 type rec_2 = record {id:text; docs:vec rec_3; fundsDistribution:float64};
 type rec_0 = record {id:text; status:text; destination:text; expectedShippingEndDate:text; docs:vec rec_1; quality:text; offerUnitPrice:float32; name:text; origin:text; transport:text; description:text; portOfOrigin:text; nftID:int32; currentMilestone:int16; quantity:int32; mintTxHash:text; presentation:text; shippingStartDate:text; variety:text; portOfDestination:text; milestones:vec rec_2};
 service: () -> {
-    createShipment: (rec_8) -> ();
+    createShipment: (rec_8, text) -> ();
     getShipmentDetails: (text) -> (rec_4) query;
     getShipmentsList: () -> (vec rec_0) query;
     getVersion: () -> (text) query;

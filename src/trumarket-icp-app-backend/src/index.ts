@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { StableBTreeMap, stableJson } from 'azle';
+import { IDL, StableBTreeMap, stableJson } from 'azle';
 import {
   Canister,
   init,
@@ -15,6 +15,7 @@ import { initDb } from './db';
 import { Context } from './types';
 import { ShipmentDetailsModel } from './entities/shipmentDetails.entity';
 import { ShipmentDetails } from './types/shipment';
+import { auth } from './authorization';
 
 const stableDbMap = StableBTreeMap<'DATABASE', Uint8Array>(0, stableJson, {
   toBytes: (data: Uint8Array) => data,
@@ -33,6 +34,7 @@ export default Canister({
     } catch (error) {
       console.log(error);
     }
+    console.log('init done');
   }),
 
   preUpgrade: preUpgrade(function (): void {
@@ -96,9 +98,13 @@ export default Canister({
   ),
 
   createShipment: update(
-    [ShipmentDetails],
+    [ShipmentDetails, text],
     Void,
-    async function (shipment: ShipmentDetails): Promise<void> {
+    async function (
+      shipment: ShipmentDetails,
+      signature: string
+    ): Promise<void> {
+      await auth(signature);
       if (!context.dataSource) {
         throw new Error('Data source not initialized');
       }
