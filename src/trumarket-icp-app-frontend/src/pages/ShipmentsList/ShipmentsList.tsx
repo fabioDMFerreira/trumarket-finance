@@ -211,7 +211,7 @@ const ShipmentDashboard: React.FC<{
   );
 };
 
-function ShipmentsList() {
+function ShipmentsList({ test }: { test: boolean }) {
   const [activeShipments, setActiveShipments] = useState<ShippingDetails[]>();
   const [inProgressShipments, setinProgressShipments] =
     useState<ShippingDetails[]>();
@@ -282,12 +282,16 @@ function ShipmentsList() {
 
   return (
     <>
-      <button
-        onClick={loadSampleData}
-        className="mb-4 p-2 bg-[#8aab3f] text-white rounded"
-      >
-        Load data sample
-      </button>
+      {test ? (
+        <button
+          onClick={loadSampleData}
+          className="mb-4 p-2 bg-[#8aab3f] text-white rounded"
+        >
+          Load data sample
+        </button>
+      ) : (
+        <></>
+      )}
       <ShipmentDashboard
         onClickShipment={redirectToShipmentDetails}
         activeShipments={activeShipments || []}

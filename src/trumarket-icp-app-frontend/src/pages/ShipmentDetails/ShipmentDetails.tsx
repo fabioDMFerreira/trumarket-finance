@@ -205,14 +205,18 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
               </Card>
             ))}
           </div>
-          <RecentActivityList />
+          {
+            shipment.nftID >= 0 ?
+            <RecentActivityList id={''+shipment.nftID} />:
+            <></>
+          }
         </div>
       </div>
     </div>
   );
 };
 
-function ShipmentDetails() {
+function ShipmentDetails({ test }: { test: boolean }) {
   const [shipmentDetails, setShipmentDetails] = useState<ShippingDetails>();
   const { id } = useParams<{ id: string }>();
 
@@ -220,13 +224,66 @@ function ShipmentDetails() {
     if (!id) return;
 
     trumarket_icp_app_backend.getShipmentDetails(id).then((shipmentDetails) => {
+      if (test) {
+        console.log('Shipment Details:', shipmentDetails);
+      }
+
       setShipmentDetails(shipmentDetails as any);
     });
-  }, [id]);
+  }, [id, test]);
+
+  const proceedOnMilestone = () => {
+    if (!shipmentDetails) return;
+
+    const milestone =
+      shipmentDetails.milestones[shipmentDetails.currentMilestone];
+
+    trumarket_icp_app_backend.updateMilestone(
+      shipmentDetails.id,
+      {
+        ...milestone,
+        docs: [
+          {
+            description: 'Test doc',
+            _id: '123',
+            url: 'https://example.com',
+          },
+        ],
+      },
+      '202a9e30f303a8ec8ed0a7d2143100728dae672e3cbcaf12eb7d484329f3e1b026751f93cded7b1a0540fb07d47b50e042f9ff443d9123d4a6a64156a585ef6782704240a9f5124c0682d231c7c12287b22cd96de9ca5f97e968ebb01f2505b8e6d0c617a8b30c65ab457f0ee4f2bed26aa4a0adbf4bf769a30b51291a274ae424f488a726528f9d45f38223db67dd12213ad0d34b96416edb22f676d099f9310b05f24540bb35c7b799d3fc03e3706fa6ed777d0e152c4bb97d5e8f6ca3fa6b37e4d959413e4de5a3330dbef508a44b5bd0371b0cf4114ebd83d0093937625062fcc14fe220a754eb4d6cb5d4063214068048b6c0177e958ad1dc76ca9ee54e'
+    );
+  };
+
+  const addActivityRecord = () => {
+    if (!shipmentDetails) return;
+
+    trumarket_icp_app_backend.createShipmentActivity(
+      shipmentDetails.id,
+      {
+        activityType: 'MilestoneChanged',
+        description: 'Milestone changed to 1',
+        createdAt: new Date().toISOString(),
+        txHash: '0x123',
+      },
+      '202a9e30f303a8ec8ed0a7d2143100728dae672e3cbcaf12eb7d484329f3e1b026751f93cded7b1a0540fb07d47b50e042f9ff443d9123d4a6a64156a585ef6782704240a9f5124c0682d231c7c12287b22cd96de9ca5f97e968ebb01f2505b8e6d0c617a8b30c65ab457f0ee4f2bed26aa4a0adbf4bf769a30b51291a274ae424f488a726528f9d45f38223db67dd12213ad0d34b96416edb22f676d099f9310b05f24540bb35c7b799d3fc03e3706fa6ed777d0e152c4bb97d5e8f6ca3fa6b37e4d959413e4de5a3330dbef508a44b5bd0371b0cf4114ebd83d0093937625062fcc14fe220a754eb4d6cb5d4063214068048b6c0177e958ad1dc76ca9ee54e'
+    );
+  };
 
   if (!shipmentDetails) return <></>;
 
-  return <ShipmentDetailsPage shipment={shipmentDetails} />;
+  return (
+    <>
+      {test ? (
+        <>
+          <button onClick={proceedOnMilestone}>Proceed on milestone</button>
+          <button onClick={addActivityRecord}>Add activity record</button>
+        </>
+      ) : (
+        <></>
+      )}
+      <ShipmentDetailsPage shipment={shipmentDetails} />
+    </>
+  );
 }
 
 export default ShipmentDetails;

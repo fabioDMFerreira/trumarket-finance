@@ -35,3 +35,11 @@ export interface ShippingDetails {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface ShipmentActivity {
+  id: string;
+  activityType: string;
+  createdAt: string;
+  description: string;
+  txHash: string;
+}

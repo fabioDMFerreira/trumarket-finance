@@ -4,18 +4,28 @@ import { trumarket_icp_app_backend } from 'declarations/trumarket-icp-app-backen
 import ShipmentsList from './pages/ShipmentsList';
 import ShipmentDetails from './pages/ShipmentDetails';
 import Scaffold from './components/Scaffold';
+import { useEffect, useState } from 'react';
 
 function App() {
-  trumarket_icp_app_backend.getVersion().then((version) => {
-    console.log('Version:', version);
+  const [test, setTest] = useState<boolean>(false);
+
+  useEffect(() => {
+    trumarket_icp_app_backend.getVersion().then((version) => {
+      console.log('Version:', version);
+    });
+
+    localStorage.getItem('test') === 'true' ? setTest(true) : setTest(false);
   });
 
   return (
     <Scaffold>
       <Router>
         <Routes>
-          <Route path="/" element={<ShipmentsList />} />
-          <Route path="/shipments/:id" element={<ShipmentDetails />} />
+          <Route path="/" element={<ShipmentsList test={test} />} />
+          <Route
+            path="/shipments/:id"
+            element={<ShipmentDetails test={test} />}
+          />
         </Routes>
       </Router>
     </Scaffold>

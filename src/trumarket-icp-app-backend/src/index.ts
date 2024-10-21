@@ -16,6 +16,8 @@ import { Context } from './types';
 import { ShipmentDetailsModel } from './entities/shipmentDetails.entity';
 import { MilestoneDetails, ShipmentDetails } from './types/shipment';
 import { auth } from './authorization';
+import { ShipmentActivityModel } from './entities/shipmentActivity.entity';
+import { Activity } from './types/activity';
 
 const stableDbMap = StableBTreeMap<'DATABASE', Uint8Array>(0, stableJson, {
   toBytes: (data: Uint8Array) => data,
@@ -157,6 +159,42 @@ export default Canister({
           milestones: shipment.milestones,
         }
       );
+    }
+  ),
+  getShipmentActivity: query(
+    [text],
+    Vec(Activity),
+    async function (id: string): Promise<Activity[]> {
+      if (!context.dataSource) {
+        throw new Error('Data source not initialized');
+      }
+
+      const activity = await context.dataSource
+        .getRepository(ShipmentActivityModel)
+        .findBy({ shipmentId: id });
+
+      return activity.map((a) => ({
+        ...a,
+        createdAt: a.createdAt.toDateString(),
+      }));
+    }
+  ),
+  createShipmentActivity: update(
+    [text, Activity, text],
+    Void,
+    async function (
+      id: string,
+      activity: Partial<Activity>,
+      signature: string
+    ): Promise<void> {
+      await auth(signature);
+      if (!context.dataSource) {
+        throw new Error('Data source not initialized');
+      }
+
+      await context.dataSource
+        .getRepository(ShipmentActivityModel)
+        .insert({ shipmentId: id, ...activity });
     }
   ),
 });
