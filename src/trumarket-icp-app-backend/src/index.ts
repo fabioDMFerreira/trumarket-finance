@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { StableBTreeMap, stableJson } from 'azle';
+import { IDL, StableBTreeMap, stableJson } from 'azle';
 import {
   Canister,
   init,
@@ -14,7 +14,10 @@ import {
 import { initDb } from './db';
 import { Context } from './types';
 import { ShipmentDetailsModel } from './entities/shipmentDetails.entity';
-import { ShipmentDetails } from './types/shipment';
+import { MilestoneDetails, ShipmentDetails } from './types/shipment';
+import { auth } from './authorization';
+import { ShipmentActivityModel } from './entities/shipmentActivity.entity';
+import { Activity } from './types/activity';
 
 const stableDbMap = StableBTreeMap<'DATABASE', Uint8Array>(0, stableJson, {
   toBytes: (data: Uint8Array) => data,
@@ -33,6 +36,7 @@ export default Canister({
     } catch (error) {
       console.log(error);
     }
+    console.log('init done');
   }),
 
   preUpgrade: preUpgrade(function (): void {
@@ -96,9 +100,13 @@ export default Canister({
   ),
 
   createShipment: update(
-    [ShipmentDetails],
+    [ShipmentDetails, text],
     Void,
-    async function (shipment: ShipmentDetails): Promise<void> {
+    async function (
+      shipment: ShipmentDetails,
+      signature: string
+    ): Promise<void> {
+      await auth(signature);
       if (!context.dataSource) {
         throw new Error('Data source not initialized');
       }
@@ -106,6 +114,87 @@ export default Canister({
       await context.dataSource
         .getRepository(ShipmentDetailsModel)
         .insert(shipment);
+    }
+  ),
+
+  updateMilestone: update(
+    [text, MilestoneDetails, text],
+    Void,
+    async function (
+      id: string,
+      milestone: MilestoneDetails,
+      signature: string
+    ): Promise<void> {
+      await auth(signature);
+      if (!context.dataSource) {
+        throw new Error('Data source not initialized');
+      }
+
+      const shipment = await context.dataSource
+        .getRepository(ShipmentDetailsModel)
+        .findOneBy({ id });
+
+      if (!shipment) {
+        throw new Error('Shipment not found');
+      }
+
+      const milestoneIndex = shipment.milestones.findIndex(
+        (m) => m.id === milestone.id
+      );
+
+      if (milestoneIndex < 0) {
+        throw new Error('Milestone not found');
+      }
+
+      if (milestoneIndex !== shipment.currentMilestone) {
+        throw new Error('Milestone not in order');
+      }
+
+      shipment.milestones[milestoneIndex] = milestone;
+
+      await context.dataSource.getRepository(ShipmentDetailsModel).update(
+        { id },
+        {
+          currentMilestone: shipment.currentMilestone + 1,
+          milestones: shipment.milestones,
+        }
+      );
+    }
+  ),
+  getShipmentActivity: query(
+    [text],
+    Vec(Activity),
+    async function (id: string): Promise<Activity[]> {
+      if (!context.dataSource) {
+        throw new Error('Data source not initialized');
+      }
+
+      const activity = await context.dataSource
+        .getRepository(ShipmentActivityModel)
+        .findBy({ shipmentId: id });
+
+      return activity.map((a) => ({
+        ...a,
+        createdAt: a.createdAt.toDateString(),
+      }));
+    }
+  ),
+  createShipmentActivity: update(
+    [text, Activity, text],
+    Void,
+    async function (
+      id: string,
+      activity: Partial<Activity>,
+      signature: string
+    ): Promise<void> {
+      await auth(signature);
+      if (!context.dataSource) {
+        throw new Error('Data source not initialized');
+      }
+
+      await context.dataSource
+        .getRepository(ShipmentActivityModel)
+        .insert({ shipmentId: id, ...activity });
     }
   ),
 });
