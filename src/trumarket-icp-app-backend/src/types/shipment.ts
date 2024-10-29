@@ -7,6 +7,7 @@ import {
   Recursive,
   text,
   Vec,
+  Opt,
 } from 'azle/experimental';
 
 export const Attachment = Recursive(() =>
@@ -48,8 +49,10 @@ export const ShipmentDetails = Recursive(() =>
     quantity: int32,
     transport: text,
     description: text,
+    investmentAmount: float32,
     nftID: int32,
     mintTxHash: text,
+    vaultAddress: Opt(text),
   })
 );
 export type ShipmentDetails = typeof ShipmentDetails.tsType;

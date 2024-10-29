@@ -15,7 +15,7 @@ function App() {
     });
 
     localStorage.getItem('test') === 'true' ? setTest(true) : setTest(false);
-  });
+  }, []);
 
   return (
     <Scaffold>

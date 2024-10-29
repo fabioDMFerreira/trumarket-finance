@@ -60,11 +60,17 @@ export class ShipmentDetailsModel extends BaseEntity {
   @Column({ type: 'text', nullable: true })
   description?: string;
 
+  @Column()
+  investmentAmount: number;
+
   @Column({ nullable: true })
   nftID?: number;
 
   @Column({ nullable: true })
   mintTxHash?: string;
+
+  @Column({ nullable: true })
+  vaultAddress?: string;
 
   @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: string;
