@@ -5,8 +5,7 @@ import { trumarket_icp_app_backend } from 'declarations/trumarket-icp-app-backen
 import { ShippingDetails } from '@/types/shipment';
 import { milestones } from '@/lib/static';
 import RecentActivityList from './RecentActivity';
-import InvestButton from './InvestButton';
-import RedeemButton from './RedeemButton';
+import FinanceSection from './FinanceSection';
 
 const formatDate = (dateString: string) => {
   if (!dateString) {
@@ -169,8 +168,6 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
               </Card>
             ))}
           </div>
-          {shipment.currentMilestone === 0 && <InvestButton deal={shipment} />}
-          {shipment.currentMilestone === 7 && <RedeemButton deal={shipment} />}
         </div>
 
         {/* Right Section - 60% */}
@@ -186,7 +183,7 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
               ? 'Shipment Completed'
               : milestones[activeStep].label}
           </h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="mb-8 grid grid-cols-2 gap-4">
             {shipment.milestones[activeStep]?.docs.map((doc) => (
               <Card key={doc._id}>
                 {doc.url.endsWith('.pdf') ? (
@@ -211,6 +208,14 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
               </Card>
             ))}
           </div>
+          {shipment.vaultAddress[0] && (
+            <FinanceSection
+              vaultAddress={shipment.vaultAddress[0]}
+              requestFundAmount={shipment.investmentAmount}
+              currentMilestone={shipment.currentMilestone}
+              nftID={shipment.nftID}
+            />
+          )}
           {shipment.nftID >= 0 ? (
             <RecentActivityList id={'' + shipment.nftID} />
           ) : (

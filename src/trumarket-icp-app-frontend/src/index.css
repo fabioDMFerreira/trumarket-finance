@@ -28,6 +28,20 @@ body {
   background-color: #8aab3f;
 }
 
+button {
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:hover{
+  filter: brightness(1.1);
+}
+
 .vi-character {
   height: 100%;
   flex-grow: 1;

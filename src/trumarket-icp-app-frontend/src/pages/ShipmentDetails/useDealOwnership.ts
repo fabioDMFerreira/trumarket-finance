@@ -4,15 +4,26 @@ import useWallet from './useWallet';
 import DealVaultAbi from '@/lib/DealVault.abi';
 import ERC20Abi from '@/lib/ERC20.abi';
 import { INVEST_TOKEN_ADDRESS } from '@/lib/BlockchainClient';
+import DealsManagerAbi from '@/lib/DealsManager.abi';
 
-const useDealOwnership = (vaultAddress: string) => {
+const dealsManagerContractAddress = process.env
+  .CANISTER_DEALS_MANAGER_CONTRACT as '0x';
+
+const useDealOwnership = (vaultAddress: string, nftID: number) => {
   const [shares, setShares] = useState<number>(0);
+  const [amountToReclaim, setAmounToReclaim] = useState<number>(0);
   const [amountFunded, setAmountFunded] = useState<number>(0);
+  const [dealStatus, setDealStatus] = useState<number>(0);
   const { signer } = useWallet();
 
-  const fetchShares = useCallback(async () => {
+  const refresh = useCallback(async () => {
     if (vaultAddress && signer && window.ethereum) {
       const provider = new ethers.BrowserProvider(window.ethereum);
+      const manager = new ethers.Contract(
+        dealsManagerContractAddress,
+        DealsManagerAbi,
+        provider
+      );
       const vault = new ethers.Contract(vaultAddress, DealVaultAbi, provider);
       vault
         .maxRedeem(signer.address)
@@ -27,34 +38,29 @@ const useDealOwnership = (vaultAddress: string) => {
           setAmountFunded(+formatEther(balance));
         })
         .catch(console.error);
+
+      vault.maxWithdraw(signer.address).then((amount) => {
+        setAmounToReclaim(+formatEther(amount));
+      });
+
+      manager.status(nftID).then((status: bigint) => {
+        setDealStatus(Number(status.toString()));
+      });
     }
   }, [vaultAddress, signer]);
 
   const redeem = async () => {
     if (window.ethereum && vaultAddress) {
-      try {
-        const provider = new ethers.BrowserProvider(window.ethereum);
-        const signer = await provider.getSigner();
-        const connectedAddress = await signer.getAddress();
-
-        const vault = new ethers.Contract(vaultAddress, DealVaultAbi, signer);
-
-        await vault.redeem(
-          parseEther('' + shares),
-          connectedAddress,
-          connectedAddress
-        );
-
-        await new Promise((resolve) =>
-          setTimeout(() => {
-            return resolve(0);
-          }, 3000)
-        );
-
-        setShares(0);
-      } catch (err) {
-        console.warn(`failed redeeming: ${err}`);
-      }
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+      const connectedAddress = await signer.getAddress();
+      const vault = new ethers.Contract(vaultAddress, DealVaultAbi, signer);
+      const tx = await vault.redeem(
+        parseEther('' + shares),
+        connectedAddress,
+        connectedAddress
+      );
+      await tx.wait();
     }
   };
 
@@ -64,26 +70,29 @@ const useDealOwnership = (vaultAddress: string) => {
         alert('Please connect your wallet');
         return;
       }
-      try {
-        const vault = new ethers.Contract(vaultAddress, DealVaultAbi, signer);
+      const vault = new ethers.Contract(vaultAddress, DealVaultAbi, signer);
 
-        const erc20 = new ethers.Contract(
-          INVEST_TOKEN_ADDRESS,
-          ERC20Abi,
-          signer
-        );
+      const erc20 = new ethers.Contract(INVEST_TOKEN_ADDRESS, ERC20Abi, signer);
 
-        await erc20.approve(vaultAddress, parseEther('' + amount));
+      await erc20.approve(vaultAddress, parseEther('' + amount));
 
-        await vault.deposit(parseEther('' + amount), signer.address);
-      } catch (err) {
-        console.warn(`failed investing: ${err}`);
-      }
+      const tx = await vault.deposit(parseEther('' + amount), signer.address);
+
+      await tx.wait();
     },
     [vaultAddress, signer]
   );
 
-  return { shares, signer, fetchShares, redeem, invest, amountFunded };
+  return {
+    shares,
+    signer,
+    refresh,
+    redeem,
+    invest,
+    amountFunded,
+    amountToReclaim,
+    dealStatus,
+  };
 };
 
 export default useDealOwnership;
