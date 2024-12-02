@@ -4,6 +4,7 @@ import useDealOwnership from './useDealOwnership';
 import LiquidityPoolDeposit from './LiquidityPoolDeposit';
 import useWallet from './useWallet';
 import ErrorMessage from './ErrorMessage';
+import { useConfig } from './useConfig';
 
 interface Props {
   vaultAddress: string;
@@ -26,16 +27,13 @@ const truncateAddress = (address: string) => {
   return `${address.slice(0, 30)}...${address.slice(-4)}`;
 };
 
-const targetNetwork = {
-  chainId: process.env.CANISTER_TARGET_EVM_CHAINID,
-};
-
 const FinanceSection: React.FC<Props> = ({
   vaultAddress,
   nftID,
   requestFundAmount,
   currentMilestone,
 }) => {
+  const config = useConfig();
   const {
     invest,
     shares,
@@ -99,6 +97,8 @@ const FinanceSection: React.FC<Props> = ({
     return <></>;
   };
 
+  if (!config) return <></>;
+
   return (
     <Card className="bg-white  w-full p-6">
       {/* Total Pool Assets */}
@@ -107,7 +107,7 @@ const FinanceSection: React.FC<Props> = ({
       {/* Vault Address */}
       <div className="rounded-lg text-xs">
         <a
-          href={`${process.env.CANISTER_BLOCKCHAIN_EXPLORER}/token/${vaultAddress}`}
+          href={`${config?.blockchainExplorer}/token/${vaultAddress}`}
           target="_blank"
           className="rounded font-mono flex items-center gap-2 text-gray-400"
         >
@@ -127,7 +127,7 @@ const FinanceSection: React.FC<Props> = ({
         </div>
       )}
 
-      {network && network !== targetNetwork.chainId && (
+      {network && network !== config?.evmChainId && (
         <div className="text-red-500 mt-4 mb-2">
           Warning: Please switch to the correct network
           <button
@@ -150,7 +150,7 @@ const FinanceSection: React.FC<Props> = ({
                     : connectMetaMask && connectMetaMask()
                 }
                 className={`bg-primary text-white rounded px-6 py-2 w-full`}
-                disabled={network !== targetNetwork.chainId}
+                disabled={network !== config?.evmChainId}
               >
                 {wallet ? 'Deposit' : 'Connect Wallet'}
               </button>

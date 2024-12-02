@@ -1,15 +1,15 @@
+import { BlockchainClient } from '@/lib/BlockchainClient';
 import { useEffect, useState, useCallback } from 'react';
 import { JsonRpcSigner, ethers } from 'ethers';
-import BlockchainClient from '@/lib/BlockchainClient';
 import { Wallet } from '@/types/global';
+import { useConfig } from './useConfig';
 
 const provider = window.ethereum
   ? new ethers.BrowserProvider(window.ethereum)
   : undefined;
 
-const targetNetwork = process.env.CANISTER_TARGET_EVM_CHAINID;
-
 const useWallet = () => {
+  const config = useConfig();
   const [wallet, setWallet] = useState<Wallet>();
   const [connectedAddress, setConnectedAddress] = useState<string>();
   const [signer, setSigner] = useState<JsonRpcSigner>();
@@ -31,7 +31,9 @@ const useWallet = () => {
       label: 'Connected Wallet',
       address: connectedAddress,
       balance: +etherBalance.toString(),
-      balanceUnderlying: await BlockchainClient.getBalance(connectedAddress),
+      balanceUnderlying: await new BlockchainClient(
+        config?.investmentTokenAddress || ''
+      ).getBalance(connectedAddress),
     });
   }, [connectedAddress]);
 
@@ -44,7 +46,7 @@ const useWallet = () => {
       try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: targetNetwork }],
+          params: [{ chainId: config?.evmChainId }],
         });
       } catch (switchError) {
         console.error('Failed to switch network:', switchError);
@@ -79,7 +81,7 @@ const useWallet = () => {
 
   useEffect(() => {
     (async () => {
-      if (window.ethereum) {
+      if (window.ethereum && config) {
         const accounts = await window.ethereum.request({
           method: 'eth_accounts',
         });
@@ -113,7 +115,7 @@ const useWallet = () => {
         });
       }
     })();
-  }, []);
+  }, [config]);
 
   return {
     wallet,
