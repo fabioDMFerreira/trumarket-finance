@@ -259,6 +259,8 @@ function ShipmentsList({ test }: { test: boolean }) {
         mintTxHash: deal.mintTxHash || '',
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
+        vaultAddress:
+          'vaultAddress' in deal ? [deal.vaultAddress as string] : [],
       };
 
       await trumarket_icp_app_backend.createShipment(

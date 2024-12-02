@@ -95,7 +95,9 @@ export default Canister({
         throw new Error('Shipment not found');
       }
 
-      return serializeShipment(shipment);
+      const shipmentSerialized = serializeShipment(shipment);
+
+      return shipmentSerialized;
     }
   ),
 
@@ -111,9 +113,13 @@ export default Canister({
         throw new Error('Data source not initialized');
       }
 
-      await context.dataSource
-        .getRepository(ShipmentDetailsModel)
-        .insert(shipment);
+      await context.dataSource.getRepository(ShipmentDetailsModel).insert({
+        ...shipment,
+        vaultAddress:
+          shipment.vaultAddress && shipment.vaultAddress.Some
+            ? shipment.vaultAddress.Some
+            : '',
+      });
     }
   ),
 
@@ -168,10 +174,12 @@ export default Canister({
       if (!context.dataSource) {
         throw new Error('Data source not initialized');
       }
-
       const activity = await context.dataSource
         .getRepository(ShipmentActivityModel)
-        .findBy({ shipmentId: id });
+        .find({
+          where: { shipmentId: id },
+          order: { createdAt: 'DESC' },
+        });
 
       return activity.map((a) => ({
         ...a,
@@ -204,5 +212,6 @@ function serializeShipment(shipment: ShipmentDetails): ShipmentDetails {
     ...shipment,
     shippingStartDate: shipment.shippingStartDate.toDateString(),
     expectedShippingEndDate: shipment.expectedShippingEndDate.toDateString(),
+    vaultAddress: shipment.vaultAddress ? { Some: shipment.vaultAddress } : {},
   };
 }

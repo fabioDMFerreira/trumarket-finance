@@ -30,8 +30,10 @@ export interface ShippingDetails {
   quantity: number;
   transport: string;
   description: string;
+  investmentAmount: number;
   nftID: number;
   mintTxHash: string;
+  vaultAddress: [string] | [];
   createdAt: string;
   updatedAt: string;
 }

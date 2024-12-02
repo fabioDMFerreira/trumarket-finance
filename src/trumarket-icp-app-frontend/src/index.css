@@ -12,8 +12,34 @@ html {
   }
 }
 
-a,h1,h2 {
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333333;
+  background-color: #f8f9fa;
+}
+
+.color-primary {
   color: #8aab3f;
+}
+
+.bg-primary {
+  background-color: #8aab3f;
+}
+
+button {
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:hover{
+  filter: brightness(1.1);
 }
 
 .vi-character {

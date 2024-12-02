@@ -5,6 +5,7 @@ import { trumarket_icp_app_backend } from 'declarations/trumarket-icp-app-backen
 import { ShippingDetails } from '@/types/shipment';
 import { milestones } from '@/lib/static';
 import RecentActivityList from './RecentActivity';
+import FinanceSection from './FinanceSection';
 
 const formatDate = (dateString: string) => {
   if (!dateString) {
@@ -33,7 +34,7 @@ const CustomStepper: React.FC<{
                 disabled={index > stepsCompleted}
                 className={`rounded-full p-2 ${
                   index <= currentStep
-                    ? 'bg-[#8aab3f] text-white'
+                    ? 'bg-primary text-white'
                     : 'bg-gray-200 text-gray-500'
                 } ${
                   index <= stepsCompleted
@@ -49,7 +50,7 @@ const CustomStepper: React.FC<{
               <div className="flex-1 h-1 bg-gray-300 mx-2">
                 <div
                   className={`h-full ${
-                    index < stepsCompleted ? 'bg-[#8aab3f]' : 'bg-gray-300'
+                    index < stepsCompleted ? 'bg-primary' : 'bg-gray-300'
                   }`}
                 />
               </div>
@@ -178,9 +179,11 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
             onStepClick={handleStep}
           />
           <h2 className="text-xl font-semibold mt-4 mb-2">
-            {milestones[activeStep].label}
+            {activeStep === 7
+              ? 'Shipment Completed'
+              : milestones[activeStep].label}
           </h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="mb-8 grid grid-cols-2 gap-4">
             {shipment.milestones[activeStep]?.docs.map((doc) => (
               <Card key={doc._id}>
                 {doc.url.endsWith('.pdf') ? (
@@ -205,11 +208,19 @@ const ShipmentDetailsPage: React.FC<{ shipment: ShippingDetails }> = ({
               </Card>
             ))}
           </div>
-          {
-            shipment.nftID >= 0 ?
-            <RecentActivityList id={''+shipment.nftID} />:
+          {shipment.vaultAddress[0] && (
+            <FinanceSection
+              vaultAddress={shipment.vaultAddress[0]}
+              requestFundAmount={shipment.investmentAmount}
+              currentMilestone={shipment.currentMilestone}
+              nftID={shipment.nftID}
+            />
+          )}
+          {shipment.nftID >= 0 ? (
+            <RecentActivityList id={'' + shipment.nftID} />
+          ) : (
             <></>
-          }
+          )}
         </div>
       </div>
     </div>
